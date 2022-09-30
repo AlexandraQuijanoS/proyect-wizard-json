@@ -1,0 +1,895 @@
+{
+    "TrackId": "ACB12344",
+    "Invoice": {
+      "ext:UBLExtensions": {
+        "ext:UBLExtension": {
+          "ext:ExtensionContent": {
+            "sts:DianExtensions": {
+              "sts:InvoiceControl": {
+                "sts:InvoiceAuthorization": "18760000001",
+                "sts:AuthorizationPeriod": {
+                  "cbc:StartDate": "2019-01-19",
+                  "cbc:EndDate": "2030-01-19"
+                },
+                "sts:AuthorizedInvoices": {
+                  "sts:Prefix": "CONT",
+                  "sts:From": "1",
+                  "sts:To": "5000000"
+                }
+              }
+            }
+          }
+        }
+      },
+      "cbc:CustomizationID": "11",
+      "cbc:ProfileExecutionID": "2",
+      "cbc:ID": "CONT15",
+      "cbc:IssueDate": "2022-08-26",
+      "cbc:IssueTime": "12:53:36-05:00",
+      "cbc:InvoiceTypeCode": "03",
+      "cbc:Note": [
+        {
+          "cbc:Note": "FACTURA DE MANDATO CONTINGENCIA, CON IVA CON DESCUENTOS CONDICIONADO Y CON INC"
+        },
+        {
+          "languageLocaleID": "telefono",
+          "cbc:Note": "3392690 - 3392691"
+        },
+        {
+          "languageLocaleID": "website",
+          "cbc:Note": "www.exito.com"
+        }
+      ],
+      "cbc:DocumentCurrencyCode": "COP",
+      "cbc:LineCountNumeric": "5",
+      "cac:OrderReference": {
+        "cbc:ID": "1",
+        "cbc:IssueDate": "2022-06-12"
+      },
+      "cac:AdditionalDocumentReference": {
+        "cbc:ID": "CONT15",
+        "cbc:IssueDate": "2022-08-16",
+        "cbc:DocumentTypeCode": "FTPC"
+      },
+      "cac:AccountingSupplierParty": {
+        "cbc:AdditionalAccountID": "1",
+        "cac:Party": {
+          "cac:PartyName": {
+            "cbc:Name": "ALMACENES EXITO S A"
+          },
+          "cac:PhysicalLocation": {
+            "cac:Address": {
+              "cbc:ID": "05615",
+              "cbc:CityName": "LA ESTRELLA",
+              "cbc:PostalZone": "055411",
+              "cbc:CountrySubentity": "Antioquia",
+              "cbc:CountrySubentityCode": "05",
+              "cac:AddressLine": {
+                "cbc:Line": "Cra. 50 #97a Sur-180 a 97a Sur-394"
+              },
+              "cac:Country": {
+                "cbc:IdentificationCode": "CO",
+                "cbc:Name": {
+                  "languageID": "es",
+                  "cbc:Name": "Colombia"
+                }
+              }
+            }
+          },
+          "cac:PartyTaxScheme": {
+            "cbc:RegistrationName": "ALMACENES EXITO S A",
+            "cbc:CompanyID": {
+              "schemeID": "9",
+              "schemeName": "31",
+              "schemeAgencyID": "195",
+              "schemeAgencyName": "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+              "cbc:CompanyID": "890900608"
+            },
+            "cbc:TaxLevelCode": {
+              "listName": "No aplica",
+              "cbc:TaxLevelCode": "O-13;O-15;O-23;O-47"
+            },
+            "cac:RegistrationAddress": {
+              "cbc:ID": "05380",
+              "cbc:CityName": "LA ESTRELLA",
+              "cbc:PostalZone": "055460",
+              "cbc:CountrySubentity": "Antioquia",
+              "cbc:CountrySubentityCode": "05",
+              "cac:AddressLine": {
+                "cbc:Line": "Cra. 50 #97a Sur-180 a 97a Sur-394"
+              },
+              "cac:Country": {
+                "cbc:IdentificationCode": "CO",
+                "cbc:Name": {
+                  "languageID": "es",
+                  "cbc:Name": "Colombia"
+                }
+              }
+            },
+            "cac:TaxScheme": {
+              "cbc:ID": "01",
+              "cbc:Name": "IVA"
+            }
+          },
+          "cac:PartyLegalEntity": {
+            "cbc:RegistrationName": "ALMACENES EXITO S A",
+            "cbc:CompanyID": {
+              "schemeID": "9",
+              "schemeName": "31",
+              "schemeAgencyID": "195",
+              "schemeAgencyName": "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+              "cbc:CompanyID": "890900608"
+            },
+            "cac:CorporateRegistrationScheme": {
+              "cbc:ID": "CONT",
+              "cbc:Name": "Matricula mercantil"
+            }
+          },
+          "cac:Contact": {
+            "cbc:Telephone": "4441234",
+            "cbc:ElectronicMail": "correo.emisor@exito.com.co"
+          }
+        }
+      },
+      "cac:AccountingCustomerParty": {
+        "cbc:AdditionalAccountID": "1",
+        "cac:Party": {
+          "cac:PartyName": {
+            "cbc:Name": "MUESTRAS SAS"
+          },
+          "cac:PhysicalLocation": {
+            "cac:Address": {
+              "cbc:ID": "05615",
+              "cbc:CityName": "LA ESTRELLA",
+              "cbc:PostalZone": "055411",
+              "cbc:CountrySubentity": "Antioquia",
+              "cbc:CountrySubentityCode": "05",
+              "cac:AddressLine": {
+                "cbc:Line": "Cra. 50 #97a Sur-180 a 97a Sur-394"
+              },
+              "cac:Country": {
+                "cbc:IdentificationCode": "CO",
+                "cbc:Name": {
+                  "languageID": "es",
+                  "cbc:Name": "Colombia"
+                }
+              }
+            }
+          },
+          "cac:PartyTaxScheme": {
+            "cbc:RegistrationName": "MUESTRAS SAS",
+            "cbc:CompanyID": {
+              "schemeID": "7",
+              "schemeName": "31",
+              "schemeAgencyID": "195",
+              "schemeAgencyName": "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+              "cbc:CompanyID": "9000000413"
+            },
+            "cbc:TaxLevelCode": {
+              "listName": "No aplica",
+              "cbc:TaxLevelCode": "R-99-PN"
+            },
+            "cac:RegistrationAddress": {
+              "cbc:ID": "05380",
+              "cbc:CityName": "LA ESTRELLA",
+              "cbc:PostalZone": "055460",
+              "cbc:CountrySubentity": "Antioquia",
+              "cbc:CountrySubentityCode": "05",
+              "cac:AddressLine": {
+                "cbc:Line": "Cra. 50 #97a Sur-180 a 97a Sur-394"
+              },
+              "cac:Country": {
+                "cbc:IdentificationCode": "CO",
+                "cbc:Name": {
+                  "languageID": "es",
+                  "cbc:Name": "Colombia"
+                }
+              }
+            },
+            "cac:TaxScheme": {
+              "cbc:ID": "01",
+              "cbc:Name": "IVA"
+            }
+          },
+          "cac:PartyLegalEntity": {
+            "cbc:RegistrationName": "MUESTRAS SAS",
+            "cbc:CompanyID": {
+              "schemeID": "7",
+              "schemeName": "31",
+              "schemeAgencyID": "195",
+              "schemeAgencyName": "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+              "cbc:CompanyID": "9000000413"
+            },
+            "cac:CorporateRegistrationScheme": {
+              "cbc:Name": "Matricula mercantil"
+            }
+          },
+          "cac:Contact": {
+            "cbc:Telephone": "4441234",
+            "cbc:ElectronicMail": "correo.emisor@exito.com.co",
+            "cbc:Nota": "Nota Libre"
+          }
+        }
+      },
+      "cac:PaymentMeans": [
+        {
+          "cbc:ID": "1",
+          "cbc:PaymentMeansCode": "ZZZ",
+          "cbc:PaymentDueDate": "2022-02-01",
+          "cbc:PaymentID": "Otro"
+        },
+        {
+          "cbc:ID": "1",
+          "cbc:PaymentMeansCode": "42",
+          "cbc:PaymentDueDate": "2022-02-01",
+          "cbc:PaymentID": "Consignacion Bancaria"
+        }
+      ],
+      "cac:AllowanceCharge": [
+        {
+          "cbc:ID": "1",
+          "cbc:ChargeIndicator": "false",
+          "cbc:AllowanceChargeReasonCode": "01",
+          "cbc:AllowanceChargeReason": "Descuento condicionado",
+          "cbc:MultiplierFactorNumeric": "1.00",
+          "cbc:Amount": {
+            "currencyID": "COP",
+            "cbc:Amount": "10.00"
+          },
+          "cbc:BaseAmount": {
+            "currencyID": "COP",
+            "cbc:BaseAmount": "1000.00"
+          }
+        },
+        {
+          "cbc:ID": "2",
+          "cbc:ChargeIndicator": "false",
+          "cbc:AllowanceChargeReasonCode": "01",
+          "cbc:AllowanceChargeReason": "Descuento condicionado",
+          "cbc:MultiplierFactorNumeric": "5.00",
+          "cbc:Amount": {
+            "currencyID": "COP",
+            "cbc:Amount": "50.00"
+          },
+          "cbc:BaseAmount": {
+            "currencyID": "COP",
+            "cbc:BaseAmount": "1000.00"
+          }
+        },
+        {
+          "cbc:ID": "3",
+          "cbc:ChargeIndicator": "false",
+          "cbc:AllowanceChargeReasonCode": "01",
+          "cbc:AllowanceChargeReason": "Descuento condicionado",
+          "cbc:MultiplierFactorNumeric": "10.00",
+          "cbc:Amount": {
+            "currencyID": "COP",
+            "cbc:Amount": "100.00"
+          },
+          "cbc:BaseAmount": {
+            "currencyID": "COP",
+            "cbc:BaseAmount": "1000.00"
+          }
+        }
+      ],
+      "cac:TaxTotal": [
+        {
+          "cbc:TaxAmount": {
+            "currencyID": "COP",
+            "cbc:TaxAmount": "380.00"
+          },
+          "cbc:RoundingAmount": {
+            "currencyID": "COP",
+            "cbc:RoundingAmount": "0.00"
+          },
+          "cac:TaxSubtotal": [
+            {
+              "cbc:TaxableAmount": {
+                "currencyID": "COP",
+                "cbc:TaxableAmount": "2000.00"
+              },
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "380.00"
+              },
+              "cac:TaxCategory": {
+                "cbc:Percent": "19.00",
+                "cac:TaxScheme": {
+                  "cbc:ID": "01",
+                  "cbc:Name": "IVA"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "cbc:TaxAmount": {
+            "currencyID": "COP",
+            "cbc:TaxAmount": "40.00"
+          },
+          "cbc:RoundingAmount": {
+            "currencyID": "COP",
+            "cbc:RoundingAmount": "0.00"
+          },
+          "cac:TaxSubtotal": [
+            {
+              "cbc:TaxableAmount": {
+                "currencyID": "COP",
+                "cbc:TaxableAmount": "1000.00"
+              },
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "40.00"
+              },
+              "cac:TaxCategory": {
+                "cbc:Percent": "4.00",
+                "cac:TaxScheme": {
+                  "cbc:ID": "04",
+                  "cbc:Name": "INC"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "cbc:TaxAmount": {
+            "currencyID": "COP",
+            "cbc:TaxAmount": "106.00"
+          },
+          "cac:TaxSubtotal": [
+            {
+              "cbc:TaxableAmount": {
+                "currencyID": "COP",
+                "cbc:TaxableAmount": "0.00"
+              },
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "106.00"
+              },
+              "cbc:BaseUnitMeasure": {
+                "UnitCode": "94",
+                "cbc:BaseUnitMeasure": "2.00"
+              },
+              "cbc:PerUnitAmount": {
+                "currencyID": "COP",
+                "cbc:PerUnitAmount": "53.00"
+              },
+              "cac:TaxCategory": {
+                "cac:TaxScheme": {
+                  "cbc:ID": "22",
+                  "cbc:Name": "INC Bolsas"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "cac:WithholdingTaxTotal": [
+        {
+          "cbc:TaxAmount": {
+            "currencyID": "COP",
+            "cbc:TaxAmount": "40.00"
+          },
+          "cac:TaxSubtotal": [
+            {
+              "cbc:TaxableAmount": {
+                "currencyID": "COP",
+                "cbc:TaxableAmount": "1000.00"
+              },
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "40.00"
+              },
+              "cac:TaxCategory": {
+                "cbc:Percent": "4.00",
+                "cac:TaxScheme": {
+                  "cbc:ID": "06",
+                  "cbc:Name": "ReteRenta"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "cac:LegalMonetaryTotal": {
+        "cbc:LineExtensionAmount": {
+          "currencyID": "COP",
+          "cbc:LineExtensionAmount": "3000.00"
+        },
+        "cbc:TaxExclusiveAmount": {
+          "currencyID": "COP",
+          "cbc:TaxExclusiveAmount": "3000.00"
+        },
+        "cbc:TaxInclusiveAmount": {
+          "currencyID": "COP",
+          "cbc:TaxInclusiveAmount": "3526.00"
+        },
+        "cbc:AllowanceTotalAmount": {
+          "currencyID": "COP",
+          "cbc:AllowanceTotalAmount": "160.00"
+        },
+        "cbc:ChargeTotalAmount": {
+          "currencyID": "COP",
+          "cbc:ChargeTotalAmount": "0.00"
+        },
+        "cbc:PrePaidAmountAmount": {
+          "currencyID": "COP",
+          "cbc:PrePaidAmountAmount": "0.00"
+        },
+        "cbc:PayableRoundingAmount": {
+          "currencyID": "COP",
+          "cbc:PayableRoundingAmount": "0.00"
+        },
+        "cbc:PayableAmount": {
+          "currencyID": "COP",
+          "cbc:PayableAmount": "3366.00"
+        }
+      },
+      "cac:InvoiceLine": [
+        {
+          "cbc:ID": {
+            "schemeID": "1",
+            "cbc:ID": "1"
+          },
+          "cbc:InvoicedQuantity": {
+            "unitCode": "94",
+            "cbc:InvoicedQuantity": "1.00"
+          },
+          "cbc:LineExtensionAmount": {
+            "currencyID": "COP",
+            "cbc:LineExtensionAmount": "1000.00"
+          },
+          "cac:AllowanceCharge": [
+            {
+              "cbc:ID": "1",
+              "cbc:ChargeIndicator": "false",
+              "cbc:MultiplierFactorNumeric": "1.00",
+              "cbc:Amount": {
+                "currencyID": "COP",
+                "cbc:Amount": "10.00"
+              },
+              "cbc:BaseAmount": {
+                "currencyID": "COP",
+                "cbc:BaseAmount": "1000.00"
+              }
+            }
+          ],
+          "cac:TaxTotal": [
+            {
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "53.00"
+              },
+              "cac:TaxSubtotal": [
+                {
+                  "cbc:TaxableAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxableAmount": "0.00"
+                  },
+                  "cbc:TaxAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxAmount": "53.00"
+                  },
+                  "cac:TaxCategory": {
+                    "cac:TaxScheme": {
+                      "cbc:ID": "01",
+                      "cbc:Name": "bolsa"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "cac:WithholdingTaxTotal": [
+            {
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "40.00"
+              },
+              "cac:TaxSubtotal": [
+                {
+                  "cbc:TaxableAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxableAmount": "1000.00"
+                  },
+                  "cbc:TaxAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxAmount": "40.00"
+                  },
+                  "cac:TaxCategory": {
+                    "cbc:Percent": "4.00",
+                    "cac:TaxScheme": {
+                      "cbc:ID": "06",
+                      "cbc:Name": "ReteRenta"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "cac:Item": {
+            "cbc:Description": "Articulo 1 Prueba",
+            "cac:StandardItemIdentification": {
+              "cbc:ID": {
+                "schemeID": "999",
+                "cbc:ID": "6543542313534"
+              }
+            },
+            "cac:InformationContentProviderParty": {
+              "cac:PowerOfAttorney": {
+                "cac:AgentParty": {
+                  "cac:PartyIdentification": {
+                    "cbc:ID": {
+                      "schemeID": "3",
+                      "schemeName": "31",
+                      "schemeAgencyID": "195",
+                      "schemeAgencyName": "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+                      "cbc:ID": "900108281"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "cac:Price": {
+            "cbc:PriceAmount": {
+              "currencyID": "COP",
+              "cbc:PriceAmount": "1000.00"
+            },
+            "cbc:BaseQuantity": {
+              "unitCode": "94",
+              "cbc:BaseQuantity": "1.00"
+            }
+          }
+        },
+        {
+          "cbc:ID": {
+            "schemeID": "1",
+            "cbc:ID": "2"
+          },
+          "cbc:InvoicedQuantity": {
+            "unitCode": "94",
+            "cbc:InvoicedQuantity": "1.00"
+          },
+          "cbc:LineExtensionAmount": {
+            "currencyID": "COP",
+            "cbc:LineExtensionAmount": "1000.00"
+          },
+          "cac:AllowanceCharge": [
+            {
+              "cbc:ID": "1",
+              "cbc:ChargeIndicator": "false",
+              "cbc:MultiplierFactorNumeric": "5.00",
+              "cbc:Amount": {
+                "currencyID": "COP",
+                "cbc:Amount": "50.00"
+              },
+              "cbc:BaseAmount": {
+                "currencyID": "COP",
+                "cbc:BaseAmount": "1000.00"
+              }
+            }
+          ],
+          "cac:TaxTotal": [
+            {
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "190.00"
+              },
+              "cbc:RoundingAmount": {
+                "currencyID": "COP",
+                "cbc:RoundingAmount": "0.00"
+              },
+              "cac:TaxSubtotal": [
+                {
+                  "cbc:TaxableAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxableAmount": "1000.00"
+                  },
+                  "cbc:TaxAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxAmount": "190.00"
+                  },
+                  "cac:TaxCategory": {
+                    "cbc:Percent": "19.00",
+                    "cac:TaxScheme": {
+                      "cbc:ID": "01",
+                      "cbc:Name": "IVA"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "cac:Item": {
+            "cbc:Description": "Articulo 1 Prueba",
+            "cac:StandardItemIdentification": {
+              "cbc:ID": {
+                "schemeID": "999",
+                "cbc:ID": "6543542313534"
+              }
+            },
+            "cac:AdditionalItemProperty": [
+              {
+                "cbc:Name": "Opcional01- calculo totales",
+                "cbc:Value": "53.00"
+              }
+            ],
+            "cac:InformationContentProviderParty": {
+              "cac:PowerOfAttorney": {
+                "cac:AgentParty": {
+                  "cac:PartyIdentification": {
+                    "cbc:ID": {
+                      "schemeID": "3",
+                      "schemeName": "31",
+                      "schemeAgencyID": "195",
+                      "schemeAgencyName": "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+                      "cbc:ID": "900108281"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "cac:Price": {
+            "cbc:PriceAmount": {
+              "currencyID": "COP",
+              "cbc:PriceAmount": "1000.00"
+            },
+            "cbc:BaseQuantity": {
+              "unitCode": "94",
+              "cbc:BaseQuantity": "1.00"
+            }
+          }
+        },
+        {
+          "cbc:ID": {
+            "schemeID": "1",
+            "cbc:ID": "3"
+          },
+          "cbc:InvoicedQuantity": {
+            "unitCode": "94",
+            "cbc:InvoicedQuantity": "1.00"
+          },
+          "cbc:LineExtensionAmount": {
+            "currencyID": "COP",
+            "cbc:LineExtensionAmount": "1000.00"
+          },
+          "cac:AllowanceCharge": [
+            {
+              "cbc:ID": "1",
+              "cbc:ChargeIndicator": "false",
+              "cbc:MultiplierFactorNumeric": "10.00",
+              "cbc:Amount": {
+                "currencyID": "COP",
+                "cbc:Amount": "100.00"
+              },
+              "cbc:BaseAmount": {
+                "currencyID": "COP",
+                "cbc:BaseAmount": "1000.00"
+              }
+            }
+          ],
+          "cac:TaxTotal": [
+            {
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "40.00"
+              },
+              "cbc:RoundingAmount": {
+                "currencyID": "COP",
+                "cbc:RoundingAmount": "0.00"
+              },
+              "cac:TaxSubtotal": [
+                {
+                  "cbc:TaxableAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxableAmount": "1000.00"
+                  },
+                  "cbc:TaxAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxAmount": "40.00"
+                  },
+                  "cac:TaxCategory": {
+                    "cbc:Percent": "4.00",
+                    "cac:TaxScheme": {
+                      "cbc:ID": "04",
+                      "cbc:Name": "INC"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "cac:Item": {
+            "cbc:Description": "Articulo 1 Prueba",
+            "cac:StandardItemIdentification": {
+              "cbc:ID": {
+                "schemeID": "999",
+                "cbc:ID": "6543542313534"
+              }
+            },
+            "cac:InformationContentProviderParty": {
+              "cac:PowerOfAttorney": {
+                "cac:AgentParty": {
+                  "cac:PartyIdentification": {
+                    "cbc:ID": {
+                      "schemeID": "3",
+                      "schemeName": "31",
+                      "schemeAgencyID": "195",
+                      "schemeAgencyName": "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+                      "cbc:ID": "900108281"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "cac:Price": {
+            "cbc:PriceAmount": {
+              "currencyID": "COP",
+              "cbc:PriceAmount": "1000.00"
+            },
+            "cbc:BaseQuantity": {
+              "unitCode": "94",
+              "cbc:BaseQuantity": "1.00"
+            }
+          }
+        },
+        {
+          "cbc:ID": {
+            "schemeID": "0",
+            "cbc:ID": "4"
+          },
+          "cbc:InvoicedQuantity": {
+            "unitCode": "94",
+            "cbc:InvoicedQuantity": "1.00"
+          },
+          "cbc:LineExtensionAmount": {
+            "currencyID": "COP",
+            "cbc:LineExtensionAmount": "0.00"
+          },
+          "cac:PricingReference": {
+            "cac:AlternativeConditionPrice": {
+              "cbc:PriceAmount": {
+                "currencyID": "COP",
+                "cbc:PriceAmount": "53.00"
+              },
+              "cbc:PriceTypeCode": "01",
+              "cbc:PriceType": "Otro valor"
+            }
+          },
+          "cac:TaxTotal": [
+            {
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "53.00"
+              },
+              "cac:TaxSubtotal": [
+                {
+                  "cbc:TaxableAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxableAmount": "0.00"
+                  },
+                  "cbc:TaxAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxAmount": "53.00"
+                  },
+                  "cbc:BaseUnitMeasure": {
+                    "unitCode": "94",
+                    "cbc:BaseUnitMeasure": "1.00"
+                  },
+                  "cbc:PerUnitAmount": {
+                    "currencyID": "COP",
+                    "cbc:PerUnitAmount": "53.00"
+                  },
+                  "cac:TaxCategory": {
+                    "cac:TaxScheme": {
+                      "cbc:ID": "22",
+                      "cbc:Name": "INC Bolsas"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "cac:Item": {
+            "cbc:Description": "Bolsa plastica",
+            "cac:StandardItemIdentification": {
+              "cbc:ID": {
+                "schemeID": "999",
+                "cbc:ID": "6543542313534"
+              }
+            }
+          },
+          "cac:Price": {
+            "cbc:PriceAmount": {
+              "currencyID": "COP",
+              "cbc:PriceAmount": "1000.00"
+            },
+            "cbc:BaseQuantity": {
+              "unitCode": "94",
+              "cbc:BaseQuantity": "1.00"
+            }
+          }
+        },
+        {
+          "cbc:ID": {
+            "schemeID": "0",
+            "cbc:ID": "5"
+          },
+          "cbc:InvoicedQuantity": {
+            "unitCode": "94",
+            "cbc:InvoicedQuantity": "1.00"
+          },
+          "cbc:LineExtensionAmount": {
+            "currencyID": "COP",
+            "cbc:LineExtensionAmount": "0.00"
+          },
+          "cac:PricingReference": {
+            "cac:AlternativeConditionPrice": {
+              "cbc:PriceAmount": {
+                "currencyID": "COP",
+                "cbc:PriceAmount": "53.00"
+              },
+              "cbc:PriceTypeCode": "01",
+              "cbc:PriceType": "Otro valor"
+            }
+          },
+          "cac:TaxTotal": [
+            {
+              "cbc:TaxAmount": {
+                "currencyID": "COP",
+                "cbc:TaxAmount": "53.00"
+              },
+              "cac:TaxSubtotal": [
+                {
+                  "cbc:TaxableAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxableAmount": "0.00"
+                  },
+                  "cbc:TaxAmount": {
+                    "currencyID": "COP",
+                    "cbc:TaxAmount": "53.00"
+                  },
+                  "cbc:BaseUnitMeasure": {
+                    "unitCode": "94",
+                    "cbc:BaseUnitMeasure": "1.00"
+                  },
+                  "cbc:PerUnitAmount": {
+                    "currencyID": "COP",
+                    "cbc:PerUnitAmount": "53.00"
+                  },
+                  "cac:TaxCategory": {
+                    "cac:TaxScheme": {
+                      "cbc:ID": "22",
+                      "cbc:Name": "INC Bolsas"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "cac:Item": {
+            "cbc:Description": "Bolsa plastica",
+            "cac:StandardItemIdentification": {
+              "cbc:ID": {
+                "schemeID": "999",
+                "cbc:ID": "6543542313534"
+              }
+            }
+          },
+          "cac:Price": {
+            "cbc:PriceAmount": {
+              "currencyID": "COP",
+              "cbc:PriceAmount": "1000.00"
+            },
+            "cbc:BaseQuantity": {
+              "unitCode": "94",
+              "cbc:BaseQuantity": "1.00"
+            }
+          }
+        }
+      ]
+    }
+  }

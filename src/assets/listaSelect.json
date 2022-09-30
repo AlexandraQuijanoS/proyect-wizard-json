@@ -1,0 +1,48 @@
+{
+    "CustomizationID": [
+        {
+            "key": "10",
+            "value": "Estándar"
+        },
+        {
+            "key": "11",
+            "value": "Mandatos"
+        }
+    ],
+    "ProfileExecutionID": [
+        {
+            "key": "1",
+            "value": "Producción"
+        },
+        {
+            "key": "2",
+            "value": "Pruebas"
+        }
+    ],
+    "InvoiceTypeCode": [
+        {
+            "key": "01",
+            "value": "Factura electrónica de Venta"
+        },
+        {
+            "key": "02",
+            "value": "Factura electrónica de venta (exportación)"
+        },
+        {
+            "key": "03",
+            "value": "Instrumento electrónico de transmisión"
+        },
+        {
+            "key": "04",
+            "value": "Factura electrónica de Venta"
+        },
+        {
+            "key": "91",
+            "value": "Nota Crédito"
+        },
+        {
+            "key": "92",
+            "value": "Nota Débito"
+        }
+    ]
+}

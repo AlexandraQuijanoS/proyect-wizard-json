@@ -1,0 +1,421 @@
+
+        <div class="docs-wizard-example-overlay-content">
+            <fd-wizard>
+                <fd-wizard-navigation>
+                    <ul fd-wizard-progress-bar size="lg" role="list" aria-label="Wizard Steps">
+                        <li
+                            fd-wizard-step
+                            [status]="step1status"
+                            (statusChange)="statusChanged(1, $event)"
+                            label="Datos generales"
+                            ariaLabel="Seccion 1 Datos generales"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 0)"
+                        >
+                            <fd-wizard-step-indicator glyph="product"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>Datos generales</h3>
+                                <!-- <fd-message-strip type="information" [dismissible]="false">
+                                    The Wizard control is supposed to break down large tasks, into smaller steps, easier
+                                    for the user to work with.
+                                </fd-message-strip> -->
+                                <div>
+                                    Formulario
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(2)">
+                                        Siguiente sección
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step2status"
+                            (statusChange)="statusChanged(2, $event)"
+                            label="Customer Information"
+                            ariaLabel="Step 2 Customer Information"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 1)"
+                        >
+                            <fd-wizard-step-indicator glyph="user-edit"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>2. Customer Information</h3>
+                                <fd-message-strip type="information" [dismissible]="false">
+                                    As the developer, you are in charge of whether or not to disable the next step
+                                    button depending on if the user has provided all required information.
+                                </fd-message-strip>
+                                <div>
+                                    Step 2
+                                </div>
+                                <div fd-form-item>
+                                    <label fd-form-label [required]="true" for="input-1">Enter Full Name:</label>
+                                    <input
+                                        fd-form-control
+                                        type="text"
+                                        id="input-1"
+                                        placeholder="Name"
+                                        aria-required="true"
+                                        [(ngModel)]="fullName"
+                                        autocomplete="off"
+                                    />
+                                </div>
+                                <div fd-form-item>
+                                    <label fd-form-label [required]="true" for="input-2">Address Line 1:</label>
+                                    <input
+                                        fd-form-control
+                                        type="text"
+                                        id="input-2"
+                                        placeholder="Address Line 1"
+                                        aria-required="true"
+                                        [(ngModel)]="addressLine1"
+                                        autocomplete="off"
+                                    />
+                                </div>
+                                <div fd-form-item>
+                                    <label fd-form-label for="input-3">Address Line 2:</label>
+                                    <input
+                                        fd-form-control
+                                        type="text"
+                                        id="input-3"
+                                        placeholder="Address Line 2"
+                                        aria-required="true"
+                                        [(ngModel)]="addressLine2"
+                                        autocomplete="off"
+                                    />
+                                </div>
+                                <fd-wizard-next-step>
+                                    <!-- [disabled]="fullName === '' || addressLine1 === ''" -->
+                                    <button
+                                        fd-button
+                                        fdCompact
+                                        fdType="emphasized"
+                                        (click)="goToStep(3)"
+                                    >
+                                        Go to Step 3
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step3status"
+                            (statusChange)="statusChanged(3, $event)"
+                            label="Additional Information"
+                            optionalText="(Optional)"
+                            ariaLabel="Step 3 Additional Information"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 2)"
+                        >
+                            <fd-wizard-step-indicator glyph="accelerated"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>3. Additional Information</h3>
+                                <fd-message-strip type="information" [dismissible]="false">
+                                    Some steps may not require any input from the customer to progress to the next step.
+                                </fd-message-strip>
+                                <div>
+                                    Step 3
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(4)">
+                                        Go to Step 4
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step4status"
+                            (statusChange)="statusChanged(4, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 3)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>4. Payment</h3>
+                                <div>
+                                    Step 4
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(5)">
+                                        Ir a step 5
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step5status"
+                            (statusChange)="statusChanged(5, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 4)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>5. Payment</h3>
+                                <div>
+                                    Step 5
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(6)">
+                                        Ir al step 6
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step6status"
+                            (statusChange)="statusChanged(6, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 5)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>6. Payment</h3>
+                                <div>
+                                    Step 6
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(7)">
+                                        Ir al paso 7
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step7status"
+                            (statusChange)="statusChanged(7, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 6)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>7. Payment</h3>
+                                <div>
+                                    Step 7
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(8)">
+                                        Ir al paso 8
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step8status"
+                            (statusChange)="statusChanged(8, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 7)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>8. Payment</h3>
+                                <div>
+                                    Step 8
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(9)">
+                                        Ir al paso 9
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step9status"
+                            (statusChange)="statusChanged(9, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 8)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>9. Payment</h3>
+                                <div>
+                                    Step 9
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(10)">
+                                        Ir al paso 10
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step10status"
+                            (statusChange)="statusChanged(10, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 9)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>10. Payment</h3>
+                                <div>
+                                    Step 10
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(11)">
+                                        Ir al paso 11
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step11status"
+                            (statusChange)="statusChanged(11, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 10)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>11. Payment</h3>
+                                <div>
+                                    Step 11
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(12)">
+                                        Ir al paso 12
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step12status"
+                            (statusChange)="statusChanged(12, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 11)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>12. Payment</h3>
+                                <div>
+                                    Step 12
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(13)">
+                                        Ir al paso 13
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step13status"
+                            (statusChange)="statusChanged(13, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 12)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>13. Payment</h3>
+                                <div>
+                                    Step 13
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(14)">
+                                        Ir al paso 14
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step14status"
+                            (statusChange)="statusChanged(14, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 13)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>14. Payment</h3>
+                                <div>
+                                    Step 14
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(15)">
+                                        Ir al paso 15
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step15status"
+                            (statusChange)="statusChanged(15, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 14)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>15. Payment</h3>
+                                <div>
+                                    Step 15
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="goToStep(16)">
+                                        Ir al paso 16
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                        <li
+                            fd-wizard-step
+                            [status]="step16status"
+                            (statusChange)="statusChanged(16, $event)"
+                            label="Pricing and Payment"
+                            ariaLabel="Step 4 Pricing and Payment"
+                            role="listitem"
+                            (keydown)="handleFocus($event, 15)"
+                        >
+                            <fd-wizard-step-indicator glyph="paid-leave"></fd-wizard-step-indicator>
+                            <fd-wizard-content size="lg">
+                                <h3 fd-title>16. Payment</h3>
+                                <div>
+                                    Step 16
+                                </div>
+                                <fd-wizard-next-step>
+                                    <button fd-button fdCompact fdType="emphasized" (click)="downloadNewJson()">
+                                        Terminar 
+                                    </button>
+                                </fd-wizard-next-step>
+                            </fd-wizard-content>
+                        </li>
+                    </ul>
+                </fd-wizard-navigation>
+                <div fd-bar barDesign="footer">
+                    <div fd-bar-right>
+                        <fd-button-bar label="Save"></fd-button-bar>
+                        <fd-button-bar label="Cancel"></fd-button-bar>
+                    </div>
+                </div>
+            </fd-wizard>
+        </div>
