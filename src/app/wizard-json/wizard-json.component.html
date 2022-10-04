@@ -458,7 +458,7 @@
                     <div
                       *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
                     >
-                      <div class="form-group animation-element align">
+                      <div>
                         <label
                           fd-form-label
                           for="input-message"
@@ -478,10 +478,7 @@
                       formGroupName="cac:Party"
                       *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
                     >
-                      <div
-                        formGroupName="cac:PartyName"
-                        style="margin-left: 12px; margin-right: 12px"
-                      >
+                      <div formGroupName="cac:PartyName" class="margin_name">
                         <label
                           fd-form-label
                           for="input-message"
@@ -500,14 +497,8 @@
                       formGroupName="cac:Party"
                       *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
                     >
-                      <div
-                        formGroupName="cac:Contact"
-                        style="display: grid; gap: 10px 20px"
-                      >
-                        <div
-                          style="grid-column: 1"
-                          class="form-group col animation-element align"
-                        >
+                      <div formGroupName="cac:Contact" class="wrapper">
+                        <div class="item_col1">
                           <label
                             fd-form-label
                             for="input-message"
@@ -522,10 +513,7 @@
                           />
                         </div>
 
-                        <div
-                          style="grid-column: 2"
-                          class="form-group col animation-element align"
-                        >
+                        <div class="item_col2">
                           <label
                             fd-form-label
                             for="input-message"
@@ -557,48 +545,37 @@
                   id="panel-content-2"
                 >
                   <fd-layout-grid>
-                    <div fdLayoutGridRow>
-                      <div
-                        *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
-                        [fdLayoutGridCol]="12"
-                        [colMd]="6"
-                        [colLg]="4"
-                        [colXl]="3"
-                      >
-                        <div class="form-group col animation-element align">
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >AdditionalAccountID:</label
-                          >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="cbc:AdditionalAccountID"
-                          />
-                        </div>
-                      </div>
-
-                      <div
-                        formGroupName="cac:Party"
-                        *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
-                        [fdLayoutGridCol]="12"
-                        [colMd]="6"
-                        [colLg]="4"
-                        [colXl]="3"
-                      >
-                        <div
-                          formGroupName="cac:PhysicalLocation"
-                          class="form-group col animation-element align"
+                    <div
+                      *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
+                    >
+                      <div class="form-group col animation-element align">
+                        <label
+                          fd-form-label
+                          for="input-message"
+                          id="label-input"
+                          >AdditionalAccountID:</label
                         >
-                          <div formGroupName="cac:Address">
-                            <div
-                              *ngIf="
-                                infoJSON.Invoice['cac:AccountingSupplierParty']
-                              "
-                            >
+                        <input
+                          fd-form-control
+                          type="text"
+                          class="form-control"
+                          formControlName="cbc:AdditionalAccountID"
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      formGroupName="cac:Party"
+                      *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
+                    >
+                      <div formGroupName="cac:PhysicalLocation">
+                        <div formGroupName="cac:Address">
+                          <div
+                            *ngIf="
+                              infoJSON.Invoice['cac:AccountingSupplierParty']
+                            "
+                          >
+                            <div style="display: flex">
                               <div
                                 *ngFor="
                                   let item of infoJSON.Invoice[
@@ -632,64 +609,66 @@
                                 </div>
                               </div>
                             </div>
-                            <div formGroupName="cac:AddressLine">
+                          </div>
+                          <div formGroupName="cac:AddressLine" class="wrapper">
+                           <div class="item_col1">
+                            <label
+                            fd-form-label
+                            for="input-message"
+                            id="label-input"
+                            >CountrySubentityCode:</label
+                          >
+                          <input
+                            fd-form-control
+                            type="text"
+                            class="form-control"
+                            formControlName="cbc:Line"
+                          />
+                           </div>
+                          </div>
+                          <div formGroupName="cac:Country" class="wrapper">
+                            <div class="item_col1">
                               <label
                                 fd-form-label
                                 for="input-message"
                                 id="label-input"
-                                >CountrySubentityCode:</label
+                                >IdentificationCode:</label
                               >
                               <input
                                 fd-form-control
                                 type="text"
                                 class="form-control"
-                                formControlName="cbc:Line"
+                                formControlName="cbc:IdentificationCode"
                               />
                             </div>
-                            <div formGroupName="cac:Country">
+                            <div formGroupName="cbc:Name">
                               <div>
                                 <label
                                   fd-form-label
                                   for="input-message"
                                   id="label-input"
-                                  >IdentificationCode:</label
+                                  >languageID:</label
                                 >
                                 <input
                                   fd-form-control
                                   type="text"
                                   class="form-control"
-                                  formControlName="cbc:IdentificationCode"
+                                  formControlName="languageID"
                                 />
                               </div>
-                              <div formGroupName="cbc:Name">
-                                <div>
-                                  <label
-                                    fd-form-label
-                                    for="input-message"
-                                    id="label-input"
-                                    >languageID:</label
-                                  >
-                                  <input
-                                    fd-form-control
-                                    type="text"
-                                    class="form-control"
-                                    formControlName="languageID"
-                                  />
-                                </div>
-                                <div>
-                                  <label
-                                    fd-form-label
-                                    for="input-message"
-                                    id="label-input"
-                                    >Country:</label
-                                  >
-                                  <input
-                                    fd-form-control
-                                    type="text"
-                                    class="form-control"
-                                    formControlName="cbc:Name"
-                                  />
-                                </div>
+                              <div>
+                                <label
+                                  fd-form-label
+                                  for="input-message"
+                                  id="label-input"
+                                  >Country:</label
+                                >
+                                <input
+                                  fd-form-control
+                                  type="text"
+                                  class="form-control"
+                                  formControlName="cbc:Name"
+                                />
                               </div>
                             </div>
                           </div>
