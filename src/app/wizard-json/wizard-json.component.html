@@ -455,10 +455,10 @@
                   id="panel-content-1"
                 >
                   <fd-layout-grid>
-                    <div  [fdLayoutGridCol]="2"
+                    <div
                       *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
                     >
-                      <div class="form-group col animation-element align">
+                      <div class="form-group animation-element align">
                         <label
                           fd-form-label
                           for="input-message"
@@ -475,13 +475,12 @@
                     </div>
 
                     <div
-                      [fdLayoutGridCol]="8"
                       formGroupName="cac:Party"
                       *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
                     >
                       <div
                         formGroupName="cac:PartyName"
-                        class="form-group col animation-element align"
+                        style="margin-left: 12px; margin-right: 12px"
                       >
                         <label
                           fd-form-label
@@ -497,15 +496,18 @@
                         />
                       </div>
                     </div>
-                  </fd-layout-grid>
-
-                  <fd-layout-grid>
-                    <div 
+                    <div
                       formGroupName="cac:Party"
                       *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
                     >
-                      <div formGroupName="cac:Contact" style="display: grid" >
-                        <div style="grid-column: 1" >
+                      <div
+                        formGroupName="cac:Contact"
+                        style="display: grid; gap: 10px 20px"
+                      >
+                        <div
+                          style="grid-column: 1"
+                          class="form-group col animation-element align"
+                        >
                           <label
                             fd-form-label
                             for="input-message"
@@ -517,10 +519,13 @@
                             type="text"
                             class="form-control"
                             formControlName="cbc:Telephone"
-                          /> 
+                          />
                         </div>
 
-                        <div [fdLayoutGridCol]="8" style="grid-column: 2">
+                        <div
+                          style="grid-column: 2"
+                          class="form-group col animation-element align"
+                        >
                           <label
                             fd-form-label
                             for="input-message"
@@ -537,7 +542,6 @@
                       </div>
                     </div>
                   </fd-layout-grid>
-
                 </div>
               </fd-panel>
 
