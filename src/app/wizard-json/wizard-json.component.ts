@@ -21,7 +21,12 @@ import {
   WizardStepComponent,
   WizardStepStatus,
 } from '@fundamental-ngx/core';
-import { Invoice, PayableAmount, PaymentMeans, SectionsInvoice } from '../types/Invoce';
+import {
+  Invoice,
+  PayableAmount,
+  PaymentMeans,
+  SectionsInvoice,
+} from '../types/Invoce';
 import { JsonServiceService } from './services/json-service.service';
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -107,7 +112,7 @@ export class WizardJsonComponent implements OnInit {
       status: 'completed',
       label: 'Detalle general',
       glyph: 'user-edit',
-    }
+    },
   ];
   loading = true;
 
@@ -146,7 +151,7 @@ export class WizardJsonComponent implements OnInit {
     private serviceJson: JsonServiceService,
     private formBuilder: FormBuilder,
     private sanitizer: DomSanitizer
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.serviceJson.getJSON().subscribe({
@@ -176,8 +181,6 @@ export class WizardJsonComponent implements OnInit {
     });
   }
 
-
-
   initForm() {
     // Datos generales
     this.generalForm = this.formBuilder.group({
@@ -204,46 +207,46 @@ export class WizardJsonComponent implements OnInit {
       ResolutionNumber: new FormControl(''),
       StartDate: new FormControl(
         this.infoJSON.Invoice['ext:UBLExtensions']['ext:UBLExtension'][
-        'ext:ExtensionContent'
+          'ext:ExtensionContent'
         ]['sts:DianExtensions']['sts:InvoiceControl'][
-        'sts:AuthorizationPeriod'
+          'sts:AuthorizationPeriod'
         ]['cbc:StartDate']
       ),
       EndDate: new FormControl(
         this.infoJSON.Invoice['ext:UBLExtensions']['ext:UBLExtension'][
-        'ext:ExtensionContent'
+          'ext:ExtensionContent'
         ]['sts:DianExtensions']['sts:InvoiceControl'][
-        'sts:AuthorizationPeriod'
+          'sts:AuthorizationPeriod'
         ]['cbc:EndDate']
       ),
       Prefix: new FormControl(
         this.infoJSON.Invoice['ext:UBLExtensions']['ext:UBLExtension'][
-        'ext:ExtensionContent'
+          'ext:ExtensionContent'
         ]['sts:DianExtensions']['sts:InvoiceControl']['sts:AuthorizedInvoices'][
-        'sts:Prefix'
+          'sts:Prefix'
         ]
       ),
       StartConsecutive: new FormControl(''),
       EndConsecutive: new FormControl(''),
       From: new FormControl(
         this.infoJSON.Invoice['ext:UBLExtensions']['ext:UBLExtension'][
-        'ext:ExtensionContent'
+          'ext:ExtensionContent'
         ]['sts:DianExtensions']['sts:InvoiceControl']['sts:AuthorizedInvoices'][
-        'sts:From'
+          'sts:From'
         ]
       ),
       To: new FormControl(
         this.infoJSON.Invoice['ext:UBLExtensions']['ext:UBLExtension'][
-        'ext:ExtensionContent'
+          'ext:ExtensionContent'
         ]['sts:DianExtensions']['sts:InvoiceControl']['sts:AuthorizedInvoices'][
-        'sts:To'
+          'sts:To'
         ]
       ),
       InvoiceAuthorization: new FormControl(
         this.infoJSON.Invoice['ext:UBLExtensions']['ext:UBLExtension'][
-        'ext:ExtensionContent'
+          'ext:ExtensionContent'
         ]['sts:DianExtensions']['sts:InvoiceControl'][
-        'sts:InvoiceAuthorization'
+          'sts:InvoiceAuthorization'
         ]
       ),
     });
@@ -267,12 +270,12 @@ export class WizardJsonComponent implements OnInit {
       ),
       'cbc:IssueDate': new FormControl(
         this.infoJSON.Invoice['cac:AdditionalDocumentReference']?.[
-        'cbc:IssueDate'
+          'cbc:IssueDate'
         ]
       ),
       'cbc:DocumentTypeCode': new FormControl(
         this.infoJSON.Invoice['cac:AdditionalDocumentReference']?.[
-        'cbc:DocumentTypeCode'
+          'cbc:DocumentTypeCode'
         ]
       ),
     });
@@ -282,14 +285,14 @@ export class WizardJsonComponent implements OnInit {
     this.transmitterForm = new FormGroup({
       'cbc:AdditionalAccountID': new FormControl(
         this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-        'cbc:AdditionalAccountID'
+          'cbc:AdditionalAccountID'
         ]
       ),
       'cac:Party': new FormGroup({
         'cac:PartyName': new FormGroup({
           'cbc:Name': new FormControl(
             this.infoJSON.Invoice['cac:AccountingSupplierParty']?.['cac:Party'][
-            'cac:PartyName'
+              'cac:PartyName'
             ]['cbc:Name']
           ),
         }),
@@ -297,46 +300,46 @@ export class WizardJsonComponent implements OnInit {
           'cac:Address': new FormGroup({
             'cbc:ID': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PhysicalLocation']['cac:Address']['cbc:ID']
             ),
             'cbc:CityName': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PhysicalLocation']['cac:Address']['cbc:CityName']
             ),
             'cbc:PostalZone': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PhysicalLocation']['cac:Address']['cbc:PostalZone']
             ),
             'cbc:CountrySubentity': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PhysicalLocation']['cac:Address']['cbc:CountrySubentity']
             ),
             'cbc:CountrySubentityCode': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PhysicalLocation']['cac:Address'][
-              'cbc:CountrySubentityCode'
+                'cbc:CountrySubentityCode'
               ]
             ),
             'cac:AddressLine': new FormGroup({
               'cbc:Line': new FormControl(
                 this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-                'cac:Party'
+                  'cac:Party'
                 ]['cac:PhysicalLocation']['cac:Address']['cac:AddressLine'][
-                'cbc:Line'
+                  'cbc:Line'
                 ]
               ),
             }),
             'cac:Country': new FormGroup({
               'cbc:IdentificationCode': new FormControl(
                 this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-                'cac:Party'
+                  'cac:Party'
                 ]['cac:PhysicalLocation']['cac:Address']['cac:Country'][
-                'cbc:IdentificationCode'
+                  'cbc:IdentificationCode'
                 ]
               ),
               'cbc:Name': new FormGroup({
@@ -349,9 +352,9 @@ export class WizardJsonComponent implements OnInit {
                 ),
                 'cbc:Name': new FormControl(
                   this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-                  'cac:Party'
+                    'cac:Party'
                   ]['cac:PhysicalLocation']['cac:Address']['cac:Country'][
-                  'cbc:Name'
+                    'cbc:Name'
                   ]['cbc:Name']
                 ),
               }),
@@ -361,13 +364,13 @@ export class WizardJsonComponent implements OnInit {
         'cac:PartyTaxScheme': new FormGroup({
           'cbc:RegistrationName': new FormControl(
             this.infoJSON.Invoice['cac:AccountingSupplierParty']?.['cac:Party'][
-            'cac:PartyTaxScheme'
+              'cac:PartyTaxScheme'
             ]['cbc:RegistrationName']
           ),
           'cbc:CompanyID': new FormGroup({
             'cbc:CompanyID': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cbc:CompanyID']['cbc:CompanyID']
             ),
             schemeAgencyID: new FormControl(
@@ -394,7 +397,7 @@ export class WizardJsonComponent implements OnInit {
           'cbc:TaxLevelCode': new FormGroup({
             'cbc:TaxLevelCode': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cbc:TaxLevelCode']['cbc:TaxLevelCode']
             ),
             listName: new FormControl(
@@ -406,58 +409,58 @@ export class WizardJsonComponent implements OnInit {
           'cac:RegistrationAddress': new FormGroup({
             'cbc:ID': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:ID']
             ),
             'cbc:CityName': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:CityName']
             ),
             'cbc:PostalZone': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
-              'cbc:PostalZone'
+                'cbc:PostalZone'
               ]
             ),
             'cbc:CountrySubentity': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
-              'cbc:CountrySubentity'
+                'cbc:CountrySubentity'
               ]
             ),
             'cbc:CountrySubentityCode': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
-              'cbc:CountrySubentityCode'
+                'cbc:CountrySubentityCode'
               ]
             ),
             'cac:AddressLine': new FormGroup({
               'cbc:Line': new FormControl(
                 this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-                'cac:Party'
+                  'cac:Party'
                 ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
-                'cac:AddressLine'
+                  'cac:AddressLine'
                 ]['cbc:Line']
               ),
             }),
             'cac:Country': new FormGroup({
               'cbc:IdentificationCode': new FormControl(
                 this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-                'cac:Party'
+                  'cac:Party'
                 ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
-                'cac:Country'
+                  'cac:Country'
                 ]['cbc:IdentificationCode']
               ),
               'cbc:Name': new FormGroup({
-                "cbc:Name": new FormControl(
+                'cbc:Name': new FormControl(
                   this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-                  'cac:Party'
+                    'cac:Party'
                   ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
-                  'cac:Country'
+                    'cac:Country'
                   ]['cbc:Name']['cbc:Name']
                 ),
                 languageID: new FormControl(
@@ -467,18 +470,18 @@ export class WizardJsonComponent implements OnInit {
                     'cac:Country'
                   ]['cbc:Name'].languageID
                 ),
-              })
+              }),
             }),
           }),
           'cac:TaxScheme': new FormGroup({
             'cbc:ID': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cac:TaxScheme']['cbc:ID']
             ),
             'cbc:Name': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyTaxScheme']['cac:TaxScheme']['cbc:Name']
             ),
           }),
@@ -486,7 +489,7 @@ export class WizardJsonComponent implements OnInit {
         'cac:PartyLegalEntity': new FormGroup({
           'cbc:RegistrationName': new FormControl(
             this.infoJSON.Invoice['cac:AccountingSupplierParty']?.['cac:Party'][
-            'cac:PartyLegalEntity'
+              'cac:PartyLegalEntity'
             ]['cbc:RegistrationName']
           ),
           'cbc:CompanyID': new FormGroup({
@@ -512,23 +515,23 @@ export class WizardJsonComponent implements OnInit {
             ),
             'cbc:CompanyID': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyLegalEntity']['cbc:CompanyID']['cbc:CompanyID']
             ),
           }),
           'cac:CorporateRegistrationScheme': new FormGroup({
             'cbc:ID': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyLegalEntity']['cac:CorporateRegistrationScheme'][
-              'cbc:ID'
+                'cbc:ID'
               ]
             ),
             'cbc:Name': new FormControl(
               this.infoJSON.Invoice['cac:AccountingSupplierParty']?.[
-              'cac:Party'
+                'cac:Party'
               ]['cac:PartyLegalEntity']['cac:CorporateRegistrationScheme'][
-              'cbc:Name'
+                'cbc:Name'
               ]
             ),
           }),
@@ -536,105 +539,292 @@ export class WizardJsonComponent implements OnInit {
         'cac:Contact': new FormGroup({
           'cbc:Telephone': new FormControl(
             this.infoJSON.Invoice['cac:AccountingSupplierParty']?.['cac:Party'][
-            'cac:Contact'
+              'cac:Contact'
             ]['cbc:Telephone']
           ),
           'cbc:ElectronicMail': new FormControl(
             this.infoJSON.Invoice['cac:AccountingSupplierParty']?.['cac:Party'][
-            'cac:Contact'
+              'cac:Contact'
             ]['cbc:ElectronicMail']
           ),
         }),
       }),
     });
 
-
     // Receptor
 
     this.receiverForm = new FormGroup({
-      "cbc:AdditionalAccountID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cbc:AdditionalAccountID']),
-      "cac:Party": new FormGroup({
-        "cac:PartyName": new FormGroup({
-          "cbc:Name": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyName']['cbc:Name']),
+      'cbc:AdditionalAccountID': new FormControl(
+        this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+          'cbc:AdditionalAccountID'
+        ]
+      ),
+      'cac:Party': new FormGroup({
+        'cac:PartyName': new FormGroup({
+          'cbc:Name': new FormControl(
+            this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party'][
+              'cac:PartyName'
+            ]['cbc:Name']
+          ),
         }),
-        "cac:PhysicalLocation": new FormGroup({
-          "cac:Address": new FormGroup({
-            "cbc:ID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cbc:ID']),
-            "cbc:CityName": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cbc:CityName']),
-            "cbc:PostalZone": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cbc:PostalZone']),
-            "cbc:CountrySubentity": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cbc:CountrySubentity']),
-            "cbc:CountrySubentityCode": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cbc:CountrySubentityCode']),
-            "cac:AddressLine": new FormGroup({
-              "cbc:Line": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cac:AddressLine']['cbc:Line']),
+        'cac:PhysicalLocation': new FormGroup({
+          'cac:Address': new FormGroup({
+            'cbc:ID': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PhysicalLocation']['cac:Address']['cbc:ID']
+            ),
+            'cbc:CityName': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PhysicalLocation']['cac:Address']['cbc:CityName']
+            ),
+            'cbc:PostalZone': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PhysicalLocation']['cac:Address']['cbc:PostalZone']
+            ),
+            'cbc:CountrySubentity': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PhysicalLocation']['cac:Address']['cbc:CountrySubentity']
+            ),
+            'cbc:CountrySubentityCode': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PhysicalLocation']['cac:Address'][
+                'cbc:CountrySubentityCode'
+              ]
+            ),
+            'cac:AddressLine': new FormGroup({
+              'cbc:Line': new FormControl(
+                this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                  'cac:Party'
+                ]['cac:PhysicalLocation']['cac:Address']['cac:AddressLine'][
+                  'cbc:Line'
+                ]
+              ),
             }),
-            "cac:Country": new FormGroup({
-              "cbc:IdentificationCode": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cac:Country']['cbc:IdentificationCode']),
-              "cbc:Name": new FormGroup({
-                languageID: new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cac:Country']['cbc:Name'].languageID),
-                "cbc:Name": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PhysicalLocation']['cac:Address']['cac:Country']['cbc:Name']['cbc:Name']),
-              })
-            })
-          }),
-        }),
-        "cac:PartyTaxScheme": new FormGroup({
-          "cbc:RegistrationName": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']),
-          "cbc:CompanyID": new FormGroup({
-            "schemeID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cbc:CompanyID'].schemeID),
-            "schemeName": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cbc:CompanyID'].schemeName),
-            "schemeAgencyID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cbc:CompanyID'].schemeAgencyID),
-            "schemeAgencyName": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cbc:CompanyID'].schemeAgencyName),
-            "cbc:CompanyID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cbc:CompanyID']['cbc:CompanyID']),
-          }),
-          "cbc:TaxLevelCode": new FormGroup({
-            listName: new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cbc:TaxLevelCode'].listName),
-            "cbc:TaxLevelCode": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cbc:TaxLevelCode']['cbc:TaxLevelCode']),
-          }),
-          "cac:RegistrationAddress": new FormGroup({
-            "cbc:ID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:ID']),
-            "cbc:CityName": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:CityName']),
-            "cbc:PostalZone": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:PostalZone']),
-            "cbc:CountrySubentity": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:CountrySubentity']),
-            "cbc:CountrySubentityCode": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:CountrySubentityCode']),
-            "cac:AddressLine": new FormGroup({
-              "cbc:Line": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cac:AddressLine']['cbc:Line']),
-            }),
-            "cac:Country": new FormGroup({
-              "cbc:IdentificationCode": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cac:Country']['cbc:IdentificationCode']),
-              "cbc:Name": new FormGroup({
-                languageID: new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cac:Country']['cbc:Name'].languageID),
-                "cbc:Name": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:RegistrationAddress']['cac:Country']['cbc:Name']['cbc:Name'])
+            'cac:Country': new FormGroup({
+              'cbc:IdentificationCode': new FormControl(
+                this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                  'cac:Party'
+                ]['cac:PhysicalLocation']['cac:Address']['cac:Country'][
+                  'cbc:IdentificationCode'
+                ]
+              ),
+              'cbc:Name': new FormGroup({
+                languageID: new FormControl(
+                  this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                    'cac:Party'
+                  ]['cac:PhysicalLocation']['cac:Address']['cac:Country'][
+                    'cbc:Name'
+                  ].languageID
+                ),
+                'cbc:Name': new FormControl(
+                  this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                    'cac:Party'
+                  ]['cac:PhysicalLocation']['cac:Address']['cac:Country'][
+                    'cbc:Name'
+                  ]['cbc:Name']
+                ),
               }),
-            })
-          }),
-          "cac:TaxScheme": new FormGroup({
-            "cbc:ID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:TaxScheme']['cbc:ID']),
-            "cbc:Name": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyTaxScheme']['cac:TaxScheme']['cbc:Name']),
+            }),
           }),
         }),
-        "cac:PartyLegalEntity": new FormGroup({
-          "cbc:RegistrationName": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyLegalEntity']['cbc:RegistrationName']),
-          "cbc:CompanyID": new FormGroup({
-            "schemeID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyLegalEntity']['cbc:CompanyID'].schemeID),
-            "schemeName": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyLegalEntity']['cbc:CompanyID'].schemeName),
-            "schemeAgencyID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyLegalEntity']['cbc:CompanyID'].schemeAgencyID),
-            "schemeAgencyName": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyLegalEntity']['cbc:CompanyID'].schemeAgencyName),
-            "cbc:CompanyID": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyLegalEntity']['cbc:CompanyID']['cbc:CompanyID'])
+        'cac:PartyTaxScheme': new FormGroup({
+          'cbc:RegistrationName': new FormControl(
+            this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party'][
+              'cac:PartyTaxScheme'
+            ]['cac:RegistrationAddress']
+          ),
+          'cbc:CompanyID': new FormGroup({
+            schemeID: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cbc:CompanyID'].schemeID
+            ),
+            schemeName: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cbc:CompanyID'].schemeName
+            ),
+            schemeAgencyID: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cbc:CompanyID'].schemeAgencyID
+            ),
+            schemeAgencyName: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cbc:CompanyID'].schemeAgencyName
+            ),
+            'cbc:CompanyID': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cbc:CompanyID']['cbc:CompanyID']
+            ),
           }),
-          "cac:CorporateRegistrationScheme": new FormGroup({
-            "cbc:Name": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:PartyLegalEntity']['cac:CorporateRegistrationScheme']['cbc:Name']),
+          'cbc:TaxLevelCode': new FormGroup({
+            listName: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cbc:TaxLevelCode'].listName
+            ),
+            'cbc:TaxLevelCode': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cbc:TaxLevelCode']['cbc:TaxLevelCode']
+            ),
+          }),
+          'cac:RegistrationAddress': new FormGroup({
+            'cbc:ID': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:ID']
+            ),
+            'cbc:CityName': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cac:RegistrationAddress']['cbc:CityName']
+            ),
+            'cbc:PostalZone': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
+                'cbc:PostalZone'
+              ]
+            ),
+            'cbc:CountrySubentity': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
+                'cbc:CountrySubentity'
+              ]
+            ),
+            'cbc:CountrySubentityCode': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
+                'cbc:CountrySubentityCode'
+              ]
+            ),
+            'cac:AddressLine': new FormGroup({
+              'cbc:Line': new FormControl(
+                this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                  'cac:Party'
+                ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
+                  'cac:AddressLine'
+                ]['cbc:Line']
+              ),
+            }),
+            'cac:Country': new FormGroup({
+              'cbc:IdentificationCode': new FormControl(
+                this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                  'cac:Party'
+                ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
+                  'cac:Country'
+                ]['cbc:IdentificationCode']
+              ),
+              'cbc:Name': new FormGroup({
+                languageID: new FormControl(
+                  this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                    'cac:Party'
+                  ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
+                    'cac:Country'
+                  ]['cbc:Name'].languageID
+                ),
+                'cbc:Name': new FormControl(
+                  this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                    'cac:Party'
+                  ]['cac:PartyTaxScheme']['cac:RegistrationAddress'][
+                    'cac:Country'
+                  ]['cbc:Name']['cbc:Name']
+                ),
+              }),
+            }),
+          }),
+          'cac:TaxScheme': new FormGroup({
+            'cbc:ID': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cac:TaxScheme']['cbc:ID']
+            ),
+            'cbc:Name': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyTaxScheme']['cac:TaxScheme']['cbc:Name']
+            ),
           }),
         }),
-        "cac:Contact": new FormGroup({
-          "cbc:Telephone": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:Contact']['cbc:Telephone']),
-          "cbc:ElectronicMail": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:Contact']['cbc:ElectronicMail']),
-          "cbc:Nota": new FormControl(this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party']['cac:Contact']['cbc:Nota'])
-        })
-      })
-    })
+        'cac:PartyLegalEntity': new FormGroup({
+          'cbc:RegistrationName': new FormControl(
+            this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party'][
+              'cac:PartyLegalEntity'
+            ]['cbc:RegistrationName']
+          ),
+          'cbc:CompanyID': new FormGroup({
+            schemeID: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyLegalEntity']['cbc:CompanyID'].schemeID
+            ),
+            schemeName: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyLegalEntity']['cbc:CompanyID'].schemeName
+            ),
+            schemeAgencyID: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyLegalEntity']['cbc:CompanyID'].schemeAgencyID
+            ),
+            schemeAgencyName: new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyLegalEntity']['cbc:CompanyID'].schemeAgencyName
+            ),
+            'cbc:CompanyID': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyLegalEntity']['cbc:CompanyID']['cbc:CompanyID']
+            ),
+          }),
+          'cac:CorporateRegistrationScheme': new FormGroup({
+            'cbc:Name': new FormControl(
+              this.infoJSON.Invoice['cac:AccountingCustomerParty']?.[
+                'cac:Party'
+              ]['cac:PartyLegalEntity']['cac:CorporateRegistrationScheme'][
+                'cbc:Name'
+              ]
+            ),
+          }),
+        }),
+        'cac:Contact': new FormGroup({
+          'cbc:Telephone': new FormControl(
+            this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party'][
+              'cac:Contact'
+            ]['cbc:Telephone']
+          ),
+          'cbc:ElectronicMail': new FormControl(
+            this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party'][
+              'cac:Contact'
+            ]['cbc:ElectronicMail']
+          ),
+          'cbc:Nota': new FormControl(
+            this.infoJSON.Invoice['cac:AccountingCustomerParty']?.['cac:Party'][
+              'cac:Contact'
+            ]['cbc:Nota']
+          ),
+        }),
+      }),
+    });
 
     //Formas de pago
 
-    this.paymentMeansForm = new FormArray(this.addGroup(this.infoJSON.Invoice['cac:PaymentMeans']))
+    this.paymentMeansForm = new FormArray(
+      this.addGroup(this.infoJSON.Invoice['cac:PaymentMeans'])
+    );
 
     // // Descuentos
 
@@ -770,19 +960,17 @@ export class WizardJsonComponent implements OnInit {
   }
 
   addGroup(group: any): any[] {
-    const auxArr : any[] = [];
+    const auxArr: any[] = [];
     group?.forEach((y: any) => {
       console.log(y);
-      let obj: any = {}
+      let obj: any = {};
       for (const [key, value] of Object.entries(y)) {
-        obj[key] = new FormControl(value) 
+        obj[key] = new FormControl(value);
       }
-      auxArr.push(new FormGroup(obj))
-    })
-    return auxArr
-
+      auxArr.push(new FormGroup(obj));
+    });
+    return auxArr;
   }
-
 
   statusChanged(stepNumber: number, event: WizardStepStatus): void {
     if (event === 'current') {
@@ -818,7 +1006,7 @@ export class WizardJsonComponent implements OnInit {
 
   //NEW
 
-  saveNewJson() { }
+  saveNewJson() {}
 
   downloadNewJson() {
     let data: SectionsInvoice;
@@ -870,5 +1058,4 @@ export class WizardJsonComponent implements OnInit {
       this.contingencyForm
     );
   }
-
 }
