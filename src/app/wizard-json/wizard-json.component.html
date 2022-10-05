@@ -548,7 +548,7 @@
                     <div
                       *ngIf="transmitterForm.value.AdditionalAccountID !== ''"
                     >
-                      <div >
+                      <div>
                         <label
                           fd-form-label
                           for="input-message"
@@ -849,7 +849,10 @@
 
                             <fd-layout-grid>
                               <div fdLayoutGridRow>
-                                <div formGroupName="cac:AddressLine" [fdLayoutGridCol]="4">
+                                <div
+                                  formGroupName="cac:AddressLine"
+                                  [fdLayoutGridCol]="4"
+                                >
                                   <label
                                     fd-form-label
                                     for="input-message"
@@ -863,7 +866,7 @@
                                     formControlName="cbc:Line"
                                   />
                                 </div>
-  
+
                                 <div formGroupName="cac:Country">
                                   <div>
                                     <label

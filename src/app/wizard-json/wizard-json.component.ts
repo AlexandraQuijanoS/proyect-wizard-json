@@ -972,26 +972,23 @@ export class WizardJsonComponent implements OnInit {
             let objIn: any = {};
             for (const [keyIn, valueIn] of Object.entries(general[key])) {
               objIn[keyIn] = new FormControl(valueIn);
-             
             }
             obj[key] = new FormGroup(objIn);
             break;
           case 'Array':
             console.log('key', key);
             //console.log('value', [value]);
-        
+
             let objInIn: any = [];
-            Object.entries([value]).forEach(item => {
-           // console.log(item);
-            
-           })
+            Object.entries([value]).forEach((item) => {
+              // console.log(item);
+            });
             for (const [keyInIn, valueInIn] of Object.entries([value])) {
               console.log(keyInIn, valueInIn);
             }
-           //console.log( '0:',Object.entries(value['0:']));
-          
-           
-            obj[key] = new FormArray(objInIn)
+            //console.log( '0:',Object.entries(value['0:']));
+
+            obj[key] = new FormArray(objInIn);
             break;
         }
       }
@@ -1087,7 +1084,6 @@ export class WizardJsonComponent implements OnInit {
     );
   }
 
-
   AddGroup(group: any): any[] {
     const auxArr: any[] = [];
     group?.forEach((y: any) => {
@@ -1108,7 +1104,6 @@ export class WizardJsonComponent implements OnInit {
     return auxArr;
   }
 
-
   addObjectInArray(value: any[]) {
     const auxArr: any[] = [];
     value?.forEach((y: any) => {
@@ -1125,21 +1120,23 @@ export class WizardJsonComponent implements OnInit {
     return auxArr;
   }
 
-  addObjectInObject(y: { [x: string]: { [s: string]: unknown; } | ArrayLike<unknown>; }, key: string, value: any){
+  addObjectInObject(
+    y: { [x: string]: { [s: string]: unknown } | ArrayLike<unknown> },
+    key: string,
+    value: any
+  ) {
     let obj: any = {};
     for (const [keyIn, valueIn] of Object.entries(y[key])) {
-       if (typeof valueIn === 'string') {
-          obj[keyIn] = new FormControl(valueIn);
-        } else if (typeof valueIn === 'object') {
-          let objIn: any = {};
-          for (const [keyObj, valueObj] of Object.entries(value[keyIn])) {
-            objIn[keyObj] = new FormControl(valueObj);
-          }
-          obj[keyIn] = new FormGroup(objIn);
+      if (typeof valueIn === 'string') {
+        obj[keyIn] = new FormControl(valueIn);
+      } else if (typeof valueIn === 'object') {
+        let objIn: any = {};
+        for (const [keyObj, valueObj] of Object.entries(value[keyIn])) {
+          objIn[keyObj] = new FormControl(valueObj);
         }
+        obj[keyIn] = new FormGroup(objIn);
+      }
     }
-    return obj
+    return obj;
   }
-
-
 }
