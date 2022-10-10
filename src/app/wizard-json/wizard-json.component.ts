@@ -301,8 +301,8 @@ export class WizardJsonComponent implements OnInit {
     this.detailForm = new FormArray(
       this.addArrayGroup(this.infoJSON.Invoice['cac:InvoiceLine'])
     );
-      console.log(this.infoJSON.Invoice['cac:InvoiceLine']);
-      
+    console.log(this.infoJSON.Invoice['cac:InvoiceLine']);
+
     this.loading = false;
   }
 
