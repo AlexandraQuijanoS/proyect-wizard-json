@@ -42,7 +42,7 @@
       ],
       "cbc:DocumentCurrencyCode": "COP",
       "cbc:LineCountNumeric": "5",
-      
+     
       "cac:AdditionalDocumentReference": {
         "cbc:ID": "CONT15",
         "cbc:IssueDate": "2022-08-16",
