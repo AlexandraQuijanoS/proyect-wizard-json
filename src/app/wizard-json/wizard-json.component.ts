@@ -148,7 +148,7 @@ export class WizardJsonComponent implements OnInit {
   listInvoiceTypeCode: keyValue[] = [];
 
   ejemplo: any;
-
+  currentStep = 1
   constructor(
     private _wizardService: WizardService,
     private serviceJson: JsonServiceService,
@@ -489,6 +489,7 @@ export class WizardJsonComponent implements OnInit {
 
   goToStep(step: number): void {
     this.steps.map((item, i) => {
+      this.currentStep = i
       if (i === step) {
         item.status = 'current';
       } else {

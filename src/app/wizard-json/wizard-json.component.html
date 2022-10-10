@@ -346,19 +346,18 @@
               [formGroup]="orderForm"
               *ngIf="step.label === 'Orden de compra'"
             >
-              <fd-layout-grid *ngIf="infoJSON.Invoice['cac:OrderReference']">
-                <div
+              <fd-layout-grid *ngIf="infoJSON.Invoice['cac:OrderReference']" style="margin-left:8px">
+                <div class="flex-content">
+                  <div
                   *ngFor="
                     let item of infoJSON.Invoice['cac:OrderReference']
                       | keyvalue
                   "
                   fdLayoutGridRow
+                  class="ms-1"
                 >
                   <div
-                    [fdLayoutGridCol]="12"
-                    [colMd]="6"
-                    [colLg]="4"
-                    [colXl]="3"
+         
                   >
                     <div
                       class="form-group col animation-element align"
@@ -390,12 +389,14 @@
                     </div>
                   </div>
                 </div>
+                </div>
               </fd-layout-grid>
               <button
                 *ngIf="!dataJSON.Invoice['cac:OrderReference']"
                 fd-button
                 fdCompact
                 type="button"
+                fdType="emphasized"
                 (click)="enableSection('enableOrderForm')"
               >
                 Habilitar
@@ -455,7 +456,6 @@
               <button
                 *ngIf="!dataJSON.Invoice['cac:AdditionalDocumentReference']"
                 fd-button
-                fdCompact
                 type="button"
                 fdType="emphasized"
                 (click)="enableSection('enableContingencyForm')"
@@ -1804,6 +1804,7 @@
                   fd-button
                   fdCompact
                   type="button"
+                  fdType="emphasized"
                   (click)="enableSection('enablePaymentMeansForm')"
                 >
                   Habilitar
@@ -2822,33 +2823,39 @@
               </fd-layout-grid>
             </form>
 
-            <div class="row row-cols-1 row-cols-md-2 spacing">
-              <button
-                fd-button
-                fdCompact
-                fdType="emphasized"
-                type="button"
-                (click)="goToStep(i - 1)"
-                *ngIf="i !== 0"
-              >
-                Regresar
-              </button>
-              <button
-                fd-button
-                fdCompact
-                fdType="emphasized"
-                type="submit"
-                (click)="goToStep(i + 1)"
-                *ngIf="i + 1 < steps.length"
-              >
-                Próximo paso
-              </button>
-            </div>
+           
           </fd-wizard-content>
         </li>
       </ul>
     </fd-wizard-navigation>
     <div fd-bar barDesign="footer">
+
+      <div fd-bar-left>
+        <div class="row row-cols-1 row-cols-md-2 spacing">
+          <button
+            fd-button
+            fdCompact
+            fdType="emphasized"
+            type="button"
+            (click)="goToStep(currentStep - 1)"
+            *ngIf="currentStep !== 0"
+          >
+            Regresar
+          </button>
+          <button
+            fd-button
+            fdCompact
+            fdType="emphasized"
+            type="submit"
+            (click)="goToStep(currentStep + 1)"
+            *ngIf="currentStep + 1 < steps.length"
+          >
+            Próximo paso
+          </button>
+        </div>
+      </div>
+
+
       <div fd-bar-right style="margin-top: 20px">
         <fd-bar-element>
           <button fd-button label="Cancel" fdCompact></button>
@@ -2863,7 +2870,7 @@
             fdCompact
             fdType="emphasized"
             type="button"
-            label="Guardar cambios"
+            label="Descargar cambios"
           ></button
         ></a>
       </div>
