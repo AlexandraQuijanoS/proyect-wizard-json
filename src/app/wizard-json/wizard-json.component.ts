@@ -154,7 +154,7 @@ export class WizardJsonComponent implements OnInit {
         this.optionList();
         setTimeout(() => {
           this.initForm();
-        }, 2000);
+        }, 3000);
       },
       error: () => {
         console.log('Error');
@@ -264,7 +264,6 @@ export class WizardJsonComponent implements OnInit {
     );
 
     // Receptor
-
     this.receiverForm = new FormGroup(
       this.addGroup(this.infoJSON.Invoice['cac:AccountingCustomerParty'])
     );
@@ -274,7 +273,6 @@ export class WizardJsonComponent implements OnInit {
     this.paymentMeansForm = new FormArray(
       this.addArrayGroup(this.infoJSON.Invoice['cac:PaymentMeans'])
     );
-
     // Descuentos
 
     this.discountsForm = new FormArray(
@@ -286,6 +284,7 @@ export class WizardJsonComponent implements OnInit {
     this.tributesForm = new FormArray(
       this.addArrayGroup(this.infoJSON.Invoice['cac:TaxTotal'])
     );
+console.log(this.tributesForm);
 
     // Retenciones
 
