@@ -115,6 +115,9 @@ export class WizardJsonComponent implements OnInit {
 
   // Informacion JSON
   infoJSON!: Invoice;
+  dataJSON!: Invoice;
+  // JSON Vacio
+  emptyJSON!: Invoice;
   // Secciones del wizard
   sectionsName: string[] = [];
   // Invoice forms
@@ -130,6 +133,12 @@ export class WizardJsonComponent implements OnInit {
   totalForm!: FormGroup;
   detailForm!: FormArray;
 
+  // Habilitar forms cuando vienen vacios
+  enableOrderForm = true;
+  enableContingencyForm = true;
+  enableTransmitterForm = true;
+  enablePaymentMeansForm = true;
+
   //Descarga
 
   fileUrl: any;
@@ -139,7 +148,7 @@ export class WizardJsonComponent implements OnInit {
   listInvoiceTypeCode: keyValue[] = [];
 
   ejemplo: any;
-
+  currentStep = 1
   constructor(
     private _wizardService: WizardService,
     private serviceJson: JsonServiceService,
@@ -148,13 +157,23 @@ export class WizardJsonComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('soy ngoninit');
     this.serviceJson.getJSON().subscribe({
       next: async (response) => {
-        this.infoJSON = response;
+        this.dataJSON = response;
         this.optionList();
         setTimeout(() => {
-          this.initForm();
+          this.orderData();
         }, 2000);
+      },
+      error: () => {
+        console.log('Error');
+      },
+    });
+    this.serviceJson.getEmptyJSON().subscribe({
+      next: async (response) => {
+        this.emptyJSON = response;
+        console.log(this.emptyJSON);
       },
       error: () => {
         console.log('Error');
@@ -173,6 +192,89 @@ export class WizardJsonComponent implements OnInit {
         console.log('Error');
       },
     });
+  }
+
+  orderData() {
+    this.infoJSON = {
+      ...this.dataJSON,
+      Invoice: {
+        'cac:OrderReference': this.dataJSON.Invoice['cac:OrderReference']
+          ? this.dataJSON.Invoice['cac:OrderReference']
+          : this.emptyJSON.Invoice['cac:OrderReference'],
+        'cac:AdditionalDocumentReference': this.dataJSON.Invoice[
+          'cac:AdditionalDocumentReference'
+        ]
+          ? this.dataJSON.Invoice['cac:AdditionalDocumentReference']
+          : this.emptyJSON.Invoice['cac:AdditionalDocumentReference'],
+        'cac:AccountingSupplierParty': this.dataJSON.Invoice[
+          'cac:AccountingSupplierParty'
+        ]
+          ? this.dataJSON.Invoice['cac:AccountingSupplierParty']
+          : this.emptyJSON.Invoice['cac:AccountingSupplierParty'],
+        'cac:AccountingCustomerParty': this.dataJSON.Invoice[
+          'cac:AccountingSupplierParty'
+        ]
+          ? this.dataJSON.Invoice['cac:AccountingSupplierParty']
+          : this.emptyJSON.Invoice['cac:AccountingSupplierParty'],
+        'cac:PaymentMeans': this.dataJSON.Invoice['cac:PaymentMeans']
+          ? this.dataJSON.Invoice['cac:PaymentMeans']
+          : this.emptyJSON.Invoice['cac:PaymentMeans'],
+        'cac:AllowanceCharge': this.dataJSON.Invoice['cac:AllowanceCharge']
+          ? this.dataJSON.Invoice['cac:AllowanceCharge']
+          : this.emptyJSON.Invoice['cac:AllowanceCharge'],
+        'cac:TaxTotal': this.dataJSON.Invoice['cac:TaxTotal']
+          ? this.dataJSON.Invoice['cac:TaxTotal']
+          : this.emptyJSON.Invoice['cac:TaxTotal'],
+        'cac:WithholdingTaxTotal': this.dataJSON.Invoice[
+          'cac:WithholdingTaxTotal'
+        ]
+          ? this.dataJSON.Invoice['cac:WithholdingTaxTotal']
+          : this.emptyJSON.Invoice['cac:WithholdingTaxTotal'],
+        'cac:LegalMonetaryTotal': this.dataJSON.Invoice[
+          'cac:LegalMonetaryTotal'
+        ]
+          ? this.dataJSON.Invoice['cac:LegalMonetaryTotal']
+          : this.emptyJSON.Invoice['cac:LegalMonetaryTotal'],
+        'cac:InvoiceLine': this.dataJSON.Invoice['cac:InvoiceLine']
+          ? this.dataJSON.Invoice['cac:InvoiceLine']
+          : this.emptyJSON.Invoice['cac:InvoiceLine'],
+        'cbc:CustomizationID': this.dataJSON.Invoice['cbc:CustomizationID']
+          ? this.dataJSON.Invoice['cbc:CustomizationID']
+          : this.emptyJSON.Invoice['cbc:CustomizationID'],
+        'cbc:ID': this.dataJSON.Invoice['cbc:ID']
+          ? this.dataJSON.Invoice['cbc:ID']
+          : this.emptyJSON.Invoice['cbc:ID'],
+        'cbc:DocumentCurrencyCode': this.dataJSON.Invoice[
+          'cbc:DocumentCurrencyCode'
+        ]
+          ? this.dataJSON.Invoice['cbc:DocumentCurrencyCode']
+          : this.emptyJSON.Invoice['cbc:DocumentCurrencyCode'],
+        'cbc:InvoiceTypeCode': this.dataJSON.Invoice['cbc:InvoiceTypeCode']
+          ? this.dataJSON.Invoice['cbc:InvoiceTypeCode']
+          : this.emptyJSON.Invoice['cbc:InvoiceTypeCode'],
+        'cbc:Note': this.dataJSON.Invoice['cbc:Note']
+          ? this.dataJSON.Invoice['cbc:Note']
+          : this.emptyJSON.Invoice['cbc:Note'],
+        'cbc:LineCountNumeric': this.dataJSON.Invoice['cbc:LineCountNumeric']
+          ? this.dataJSON.Invoice['cbc:LineCountNumeric']
+          : this.emptyJSON.Invoice['cbc:LineCountNumeric'],
+        'ext:UBLExtensions': this.dataJSON.Invoice['ext:UBLExtensions']
+          ? this.dataJSON.Invoice['ext:UBLExtensions']
+          : this.emptyJSON.Invoice['ext:UBLExtensions'],
+        'cbc:IssueTime': this.dataJSON.Invoice['cbc:IssueTime']
+          ? this.dataJSON.Invoice['cbc:IssueTime']
+          : this.emptyJSON.Invoice['cbc:IssueTime'],
+        'cbc:ProfileExecutionID': this.dataJSON.Invoice[
+          'cbc:ProfileExecutionID'
+        ]
+          ? this.dataJSON.Invoice['cbc:ProfileExecutionID']
+          : this.emptyJSON.Invoice['cbc:ProfileExecutionID'],
+        'cbc:IssueDate': this.dataJSON.Invoice['cbc:IssueDate']
+          ? this.dataJSON.Invoice['cbc:IssueDate']
+          : this.emptyJSON.Invoice['cbc:IssueDate'],
+      },
+    };
+    this.initForm();
   }
 
   initForm() {
@@ -251,11 +353,21 @@ export class WizardJsonComponent implements OnInit {
       this.addGroup(this.infoJSON.Invoice['cac:OrderReference'])
     );
 
+    this.enableOrderForm = this.dataJSON.Invoice['cac:OrderReference']
+      ? false
+      : true;
+
     // Campos de contingencia
 
     this.contingencyForm = new FormGroup(
       this.addGroup(this.infoJSON.Invoice['cac:AdditionalDocumentReference'])
     );
+
+    this.enableContingencyForm = this.dataJSON.Invoice[
+      'cac:AdditionalDocumentReference'
+    ]
+      ? false
+      : true;
 
     // Emisor Exito
 
@@ -263,8 +375,13 @@ export class WizardJsonComponent implements OnInit {
       this.addGroup(this.infoJSON.Invoice['cac:AccountingSupplierParty'])
     );
 
-    // Receptor
+    this.enableTransmitterForm = this.dataJSON.Invoice[
+      'cac:AccountingSupplierParty'
+    ]
+      ? false
+      : true;
 
+    // Receptor
     this.receiverForm = new FormGroup(
       this.addGroup(this.infoJSON.Invoice['cac:AccountingCustomerParty'])
     );
@@ -274,6 +391,11 @@ export class WizardJsonComponent implements OnInit {
     this.paymentMeansForm = new FormArray(
       this.addArrayGroup(this.infoJSON.Invoice['cac:PaymentMeans'])
     );
+
+
+    this.enablePaymentMeansForm = this.dataJSON.Invoice['cac:PaymentMeans']
+      ? false
+      : true;
 
     // Descuentos
 
@@ -303,6 +425,7 @@ export class WizardJsonComponent implements OnInit {
     this.detailForm = new FormArray(
       this.addArrayGroup(this.infoJSON.Invoice['cac:InvoiceLine'])
     );
+    console.log(this.infoJSON.Invoice['cac:InvoiceLine']);
 
     this.loading = false;
   }
@@ -366,6 +489,7 @@ export class WizardJsonComponent implements OnInit {
 
   goToStep(step: number): void {
     this.steps.map((item, i) => {
+      this.currentStep = i
       if (i === step) {
         item.status = 'current';
       } else {
@@ -420,27 +544,64 @@ export class WizardJsonComponent implements OnInit {
             },
           },
         },
-      },
-      'cac:OrderReference': this.orderForm.value,
-      'cac:AdditionalDocumentReference': this.contingencyForm.value,
-      'cac:AccountingSupplierParty': this.transmitterForm.value,
+      }
     };
+    
+    if(this.orderForm.dirty){
+      data = {...this.infoJSON.Invoice, 'cac:OrderReference': this.orderForm.value}
+    } else {
+      delete data['cac:OrderReference'] 
+    }
+    if(this.contingencyForm.dirty) {
+      data = {...this.infoJSON.Invoice, 'cac:AdditionalDocumentReference': this.contingencyForm.value}
+    }else{
+      delete data['cac:AdditionalDocumentReference'] 
+    }
+    if(this.transmitterForm.dirty) {
+      data = {...this.infoJSON.Invoice, 'cac:AccountingSupplierParty': this.transmitterForm.value}
+    } else {
+      delete data['cac:AccountingSupplierParty']
+    }
+    if(this.paymentMeansForm.dirty) {
+      data = {...this.infoJSON.Invoice, 'cac:PaymentMeans': this.paymentMeansForm.value}
+    } else {
+      delete data['cac:PaymentMeans']
+    }
+
     var theJSON = JSON.stringify(data);
     var uri = this.sanitizer.bypassSecurityTrustUrl(
       'data:text/json;charset=UTF-8,' + encodeURIComponent(theJSON)
     );
     this.fileUrl = uri;
-    this.serviceJson.saveJSON(
-      this.infoJSON.TrackId,
-      this.generalForm,
-      this.orderForm,
-      this.contingencyForm
-    );
+    this.serviceJson.saveJSON();
   }
 
-  changeName(fieldName: string) {
+  changeName(fieldName: any | string) {
     return fieldName.split(':').length > 1
       ? fieldName.split(':')[1]
       : fieldName.split(':')[0];
+  }
+
+  enableSection(section: string) {
+    if (section === 'enableOrderForm') {
+      this.enableOrderForm = false;
+    } else if (section === 'enableContingencyForm') {
+      this.enableContingencyForm = false;
+    } else if (section === 'enableTransmitterForm') {
+      this.enableTransmitterForm = false;
+    } else if (section === 'enablePaymentMeansForm') {
+      // this.enablePaymentMeansForm = false;
+      console.log('Hola');
+      this.paymentMeansForm.get('cbc:ID')?.disable();
+    }
+  }
+
+  // Agregar un array en formas de pago
+  addPaymentMeans() {
+    this.paymentMeansForm.push(
+      new FormGroup(
+        this.addGroup(this.emptyJSON.Invoice['cac:PaymentMeans']?.[0])
+      )
+    );
   }
 }
