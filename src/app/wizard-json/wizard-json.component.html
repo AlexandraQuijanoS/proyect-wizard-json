@@ -360,7 +360,10 @@
                     [colLg]="4"
                     [colXl]="3"
                   >
-                    <div class="form-group col animation-element align">
+                    <div
+                      class="form-group col animation-element align"
+                      fd-form-item
+                    >
                       <label
                         fd-form-label
                         for="input-message"
@@ -369,6 +372,7 @@
                       >
 
                       <input
+                        [readonly]="enableOrderForm"
                         *ngIf="item.key === 'cbc:IssueDate'"
                         fd-form-control
                         type="date"
@@ -376,6 +380,7 @@
                         formControlName="{{ item.key }}"
                       />
                       <input
+                        [readonly]="enableOrderForm"
                         *ngIf="item.key !== 'cbc:IssueDate'"
                         fd-form-control
                         type="text"
@@ -386,6 +391,15 @@
                   </div>
                 </div>
               </fd-layout-grid>
+              <button
+                *ngIf="!dataJSON.Invoice['cac:OrderReference']"
+                fd-button
+                fdCompact
+                type="button"
+                (click)="enableSection('enableOrderForm')"
+              >
+                Habilitar
+              </button>
             </form>
 
             <!-- Contingencia -->
@@ -419,6 +433,7 @@
                         >{{ changeName(item.key) }}</label
                       >
                       <input
+                        [readonly]="enableContingencyForm"
                         *ngIf="item.key === 'cbc:IssueDate'"
                         fd-form-control
                         type="date"
@@ -426,6 +441,7 @@
                         formControlName="{{ item.key }}"
                       />
                       <input
+                        [readonly]="enableContingencyForm"
                         *ngIf="item.key !== 'cbc:IssueDate'"
                         fd-form-control
                         type="text"
@@ -436,6 +452,16 @@
                   </div>
                 </div>
               </fd-layout-grid>
+              <button
+                *ngIf="!dataJSON.Invoice['cac:AdditionalDocumentReference']"
+                fd-button
+                fdCompact
+                type="button"
+                fdType="emphasized"
+                (click)="enableSection('enableContingencyForm')"
+              >
+                Habilitar
+              </button>
             </form>
 
             <!-- Emisor -->
@@ -1828,12 +1854,9 @@
             >
               <fd-layout-grid>
                 <div
-                  *ngFor="
-                    let means of this.infoJSON.Invoice['cac:PaymentMeans'];
-                    let i = index
-                  "
-                  fdLayoutGridRow
-                  [formGroupName]="i"
+                *ngFor="let means of paymentMeansForm.value; let i = index"
+                fdLayoutGridRow
+                [formGroupName]="i"
                 >
                   <div
                     *ngFor="let item of means | keyvalue"
@@ -1844,7 +1867,7 @@
                   >
                     <div class="form-group col animation-element align">
                       <label fd-form-label for="input-message" id="label-input"
-                        >{{ changeName(item.key) }}:
+                        >{{ changeName(item.key) }} :
                       </label>
                       <input
                         fd-form-control
@@ -1856,6 +1879,27 @@
                   </div>
                 </div>
               </fd-layout-grid>
+              <div class="row row-cols-1 row-cols-md-2 spacing">
+                <button
+                  *ngIf="!dataJSON.Invoice['cac:PaymentMeans']"
+                  fd-button
+                  fdCompact
+                  type="button"
+                  (click)="enableSection('enablePaymentMeansForm')"
+                >
+                  Habilitar
+                </button>
+                <button
+                  *ngIf="!dataJSON.Invoice['cac:PaymentMeans']"
+                  fd-button
+                  fdCompact
+                  fdType="emphasized"
+                  type="button"
+                  (click)="addPaymentMeans()"
+                >
+                  Agregar
+                </button>
+              </div>
             </form>
 
             <!-- Descuentos -->

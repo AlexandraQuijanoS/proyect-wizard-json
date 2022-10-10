@@ -1,0 +1,443 @@
+{
+  "TrackId": "ACB12344",
+  "Invoice": {
+    "ext:UBLExtensions": {
+      "ext:UBLExtension": {
+        "ext:ExtensionContent": {
+          "sts:DianExtensions": {
+            "sts:InvoiceControl": {
+              "sts:InvoiceAuthorization": "",
+              "sts:AuthorizationPeriod": {
+                "cbc:StartDate": "",
+                "cbc:EndDate": ""
+              },
+              "sts:AuthorizedInvoices": {
+                "sts:Prefix": "",
+                "sts:From": "",
+                "sts:To": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "cbc:CustomizationID": "",
+    "cbc:ProfileExecutionID": "",
+    "cbc:ID": "",
+    "cbc:IssueDate": "",
+    "cbc:IssueTime": "",
+    "cbc:InvoiceTypeCode": "",
+    "cbc:Note": [
+      {
+        "languageLocaleID": "telefono",
+        "cbc:Note": "3392690 - 3392691"
+      }
+    ],
+    "cbc:DocumentCurrencyCode": "",
+    "cbc:LineCountNumeric": "",
+    "cac:OrderReference": {
+      "cbc:ID": "",
+      "cbc:IssueDate": ""
+    },
+    "cac:AdditionalDocumentReference": {
+      "cbc:ID": "",
+      "cbc:IssueDate": "",
+      "cbc:DocumentTypeCode": ""
+    },
+    "cac:AccountingSupplierParty": {
+      "cbc:AdditionalAccountID": "",
+      "cac:Party": {
+        "cac:PartyName": {
+          "cbc:Name": ""
+        },
+        "cac:PhysicalLocation": {
+          "cac:Address": {
+            "cbc:ID": "",
+            "cbc:CityName": "",
+            "cbc:PostalZone": "",
+            "cbc:CountrySubentity": "",
+            "cbc:CountrySubentityCode": "",
+            "cac:AddressLine": {
+              "cbc:Line": ""
+            },
+            "cac:Country": {
+              "cbc:IdentificationCode": "",
+              "cbc:Name": {
+                "languageID": "",
+                "cbc:Name": ""
+              }
+            }
+          }
+        },
+        "cac:PartyTaxScheme": {
+          "cbc:RegistrationName": "",
+          "cbc:CompanyID": {
+            "schemeID": "",
+            "schemeName": "",
+            "schemeAgencyID": "",
+            "schemeAgencyName": "",
+            "cbc:CompanyID": ""
+          },
+          "cbc:TaxLevelCode": {
+            "listName": "",
+            "cbc:TaxLevelCode": ""
+          },
+          "cac:RegistrationAddress": {
+            "cbc:ID": "",
+            "cbc:CityName": "",
+            "cbc:PostalZone": "",
+            "cbc:CountrySubentity": "",
+            "cbc:CountrySubentityCode": "",
+            "cac:AddressLine": {
+              "cbc:Line": ""
+            },
+            "cac:Country": {
+              "cbc:IdentificationCode": "",
+              "cbc:Name": {
+                "languageID": "",
+                "cbc:Name": ""
+              }
+            }
+          },
+          "cac:TaxScheme": {
+            "cbc:ID": "",
+            "cbc:Name": ""
+          }
+        },
+        "cac:PartyLegalEntity": {
+          "cbc:RegistrationName": "",
+          "cbc:CompanyID": {
+            "schemeID": "",
+            "schemeName": "",
+            "schemeAgencyID": "",
+            "schemeAgencyName": "",
+            "cbc:CompanyID": ""
+          },
+          "cac:CorporateRegistrationScheme": {
+            "cbc:ID": "",
+            "cbc:Name": ""
+          }
+        },
+        "cac:Contact": {
+          "cbc:Telephone": "",
+          "cbc:ElectronicMail": ""
+        }
+      }
+    },
+    "cac:AccountingCustomerParty": {
+      "cbc:AdditionalAccountID": "",
+      "cac:Party": {
+        "cac:PartyName": {
+          "cbc:Name": ""
+        },
+        "cac:PhysicalLocation": {
+          "cac:Address": {
+            "cbc:ID": "",
+            "cbc:CityName": "",
+            "cbc:PostalZone": "",
+            "cbc:CountrySubentity": "",
+            "cbc:CountrySubentityCode": "",
+            "cac:AddressLine": {
+              "cbc:Line": ""
+            },
+            "cac:Country": {
+              "cbc:IdentificationCode": "",
+              "cbc:Name": {
+                "languageID": "",
+                "cbc:Name": ""
+              }
+            }
+          }
+        },
+        "cac:PartyTaxScheme": {
+          "cbc:RegistrationName": "",
+          "cbc:CompanyID": {
+            "schemeID": "",
+            "schemeName": "",
+            "schemeAgencyID": "",
+            "schemeAgencyName": "",
+            "cbc:CompanyID": ""
+          },
+          "cbc:TaxLevelCode": {
+            "listName": "",
+            "cbc:TaxLevelCode": ""
+          },
+          "cac:RegistrationAddress": {
+            "cbc:ID": "",
+            "cbc:CityName": "",
+            "cbc:PostalZone": "",
+            "cbc:CountrySubentity": "",
+            "cbc:CountrySubentityCode": "",
+            "cac:AddressLine": {
+              "cbc:Line": ""
+            },
+            "cac:Country": {
+              "cbc:IdentificationCode": "",
+              "cbc:Name": {
+                "languageID": "",
+                "cbc:Name": ""
+              }
+            }
+          },
+          "cac:TaxScheme": {
+            "cbc:ID": "",
+            "cbc:Name": ""
+          }
+        },
+        "cac:PartyLegalEntity": {
+          "cbc:RegistrationName": "",
+          "cbc:CompanyID": {
+            "schemeID": "",
+            "schemeName": "",
+            "schemeAgencyID": "",
+            "schemeAgencyName": "",
+            "cbc:CompanyID": ""
+          },
+          "cac:CorporateRegistrationScheme": {
+            "cbc:Name": ""
+          }
+        },
+        "cac:Contact": {
+          "cbc:Telephone": "",
+          "cbc:ElectronicMail": "",
+          "cbc:Nota": ""
+        }
+      }
+    },
+    "cac:PaymentMeans": [
+      {
+        "cbc:ID": "",
+        "cbc:PaymentMeansCode": "",
+        "cbc:PaymentDueDate": "",
+        "cbc:PaymentID": ""
+      }
+    ],
+    "cac:AllowanceCharge": [
+      {
+        "cbc:ID": "",
+        "cbc:ChargeIndicator": "",
+        "cbc:AllowanceChargeReasonCode": "",
+        "cbc:AllowanceChargeReason": "",
+        "cbc:MultiplierFactorNumeric": "",
+        "cbc:Amount": {
+          "currencyID": "",
+          "cbc:Amount": ""
+        },
+        "cbc:BaseAmount": {
+          "currencyID": "",
+          "cbc:BaseAmount": ""
+        }
+      }
+    ],
+    "cac:TaxTotal": [
+      {
+        "cbc:TaxAmount": {
+          "currencyID": "",
+          "cbc:TaxAmount": ""
+        },
+        "cbc:RoundingAmount": {
+          "currencyID": "",
+          "cbc:RoundingAmount": ""
+        },
+        "cac:TaxSubtotal": [
+          {
+            "cbc:TaxableAmount": {
+              "currencyID": "",
+              "cbc:TaxableAmount": ""
+            },
+            "cbc:TaxAmount": {
+              "currencyID": "",
+              "cbc:TaxAmount": ""
+            },
+            "cac:TaxCategory": {
+              "cbc:Percent": "",
+              "cac:TaxScheme": {
+                "cbc:ID": "",
+                "cbc:Name": ""
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "cac:WithholdingTaxTotal": [
+      {
+        "cbc:TaxAmount": {
+          "currencyID": "",
+          "cbc:TaxAmount": ""
+        },
+        "cac:TaxSubtotal": [
+          {
+            "cbc:TaxableAmount": {
+              "currencyID": "",
+              "cbc:TaxableAmount": ""
+            },
+            "cbc:TaxAmount": {
+              "currencyID": "",
+              "cbc:TaxAmount": ""
+            },
+            "cac:TaxCategory": {
+              "cbc:Percent": "",
+              "cac:TaxScheme": {
+                "cbc:ID": "",
+                "cbc:Name": ""
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "cac:LegalMonetaryTotal": {
+      "cbc:LineExtensionAmount": {
+        "currencyID": "",
+        "cbc:LineExtensionAmount": ""
+      },
+      "cbc:TaxExclusiveAmount": {
+        "currencyID": "",
+        "cbc:TaxExclusiveAmount": ""
+      },
+      "cbc:TaxInclusiveAmount": {
+        "currencyID": "",
+        "cbc:TaxInclusiveAmount": ""
+      },
+      "cbc:AllowanceTotalAmount": {
+        "currencyID": "",
+        "cbc:AllowanceTotalAmount": ""
+      },
+      "cbc:ChargeTotalAmount": {
+        "currencyID": "",
+        "cbc:ChargeTotalAmount": ""
+      },
+      "cbc:PrePaidAmountAmount": {
+        "currencyID": "",
+        "cbc:PrePaidAmountAmount": ""
+      },
+      "cbc:PayableRoundingAmount": {
+        "currencyID": "",
+        "cbc:PayableRoundingAmount": ""
+      },
+      "cbc:PayableAmount": {
+        "currencyID": "",
+        "cbc:PayableAmount": ""
+      }
+    },
+    "cac:InvoiceLine": [
+      {
+        "cbc:ID": {
+          "schemeID": "",
+          "cbc:ID": ""
+        },
+        "cbc:InvoicedQuantity": {
+          "unitCode": "",
+          "cbc:InvoicedQuantity": ""
+        },
+        "cbc:LineExtensionAmount": {
+          "currencyID": "",
+          "cbc:LineExtensionAmount": ""
+        },
+        "cac:AllowanceCharge": [
+          {
+            "cbc:ID": "",
+            "cbc:ChargeIndicator": "",
+            "cbc:MultiplierFactorNumeric": "",
+            "cbc:Amount": {
+              "currencyID": "",
+              "cbc:Amount": ""
+            },
+            "cbc:BaseAmount": {
+              "currencyID": "",
+              "cbc:BaseAmount": ""
+            }
+          }
+        ],
+        "cac:TaxTotal": [
+          {
+            "cbc:TaxAmount": {
+              "currencyID": "",
+              "cbc:TaxAmount": ""
+            },
+            "cac:TaxSubtotal": [
+              {
+                "cbc:TaxableAmount": {
+                  "currencyID": "",
+                  "cbc:TaxableAmount": ""
+                },
+                "cbc:TaxAmount": {
+                  "currencyID": "",
+                  "cbc:TaxAmount": ""
+                },
+                "cac:TaxCategory": {
+                  "cac:TaxScheme": {
+                    "cbc:ID": "",
+                    "cbc:Name": ""
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "cac:WithholdingTaxTotal": [
+          {
+            "cbc:TaxAmount": {
+              "currencyID": "",
+              "cbc:TaxAmount": ""
+            },
+            "cac:TaxSubtotal": [
+              {
+                "cbc:TaxableAmount": {
+                  "currencyID": "",
+                  "cbc:TaxableAmount": ""
+                },
+                "cbc:TaxAmount": {
+                  "currencyID": "",
+                  "cbc:TaxAmount": ""
+                },
+                "cac:TaxCategory": {
+                  "cbc:Percent": "",
+                  "cac:TaxScheme": {
+                    "cbc:ID": "",
+                    "cbc:Name": ""
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "cac:Item": {
+          "cbc:Description": "",
+          "cac:StandardItemIdentification": {
+            "cbc:ID": {
+              "schemeID": "",
+              "cbc:ID": ""
+            }
+          },
+          "cac:InformationContentProviderParty": {
+            "cac:PowerOfAttorney": {
+              "cac:AgentParty": {
+                "cac:PartyIdentification": {
+                  "cbc:ID": {
+                    "schemeID": "",
+                    "schemeName": "",
+                    "schemeAgencyID": "",
+                    "schemeAgencyName": "",
+                    "cbc:ID": ""
+                  }
+                }
+              }
+            }
+          }
+        },
+        "cac:Price": {
+          "cbc:PriceAmount": {
+            "currencyID": "",
+            "cbc:PriceAmount": ""
+          },
+          "cbc:BaseQuantity": {
+            "unitCode": "",
+            "cbc:BaseQuantity": ""
+          }
+        }
+      }
+    ]
+  }
+}
