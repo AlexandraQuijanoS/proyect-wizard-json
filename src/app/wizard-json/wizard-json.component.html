@@ -1853,25 +1853,27 @@
                     >
                       <div formGroupName="cbc:BaseAmount">
                         <div *ngIf="infoJSON.Invoice['cac:AllowanceCharge']">
-                          <div
-                            *ngFor="
-                              let itemAmount of infoJSON.Invoice[
-                                'cac:AllowanceCharge'
-                              ][i]['cbc:BaseAmount'] | keyvalue
-                            "
-                          >
-                            <label
-                              fd-form-label
-                              for="input-message"
-                              id="label-input"
-                              >{{ changeName(itemAmount.key) }}:
-                            </label>
-                            <input
-                              fd-form-control
-                              type="text"
-                              class="form-control"
-                              formControlName="{{ itemAmount.key }}"
-                            />
+                          <div class="flex-content">
+                            <div
+                              *ngFor="
+                                let itemAmount of infoJSON.Invoice[
+                                  'cac:AllowanceCharge'
+                                ][i]['cbc:BaseAmount'] | keyvalue
+                              "
+                            >
+                              <label
+                                fd-form-label
+                                for="input-message"
+                                id="label-input"
+                                >{{ changeName(itemAmount.key) }}:
+                              </label>
+                              <input
+                                fd-form-control
+                                type="text"
+                                class="form-control"
+                                formControlName="{{ itemAmount.key }}"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1895,22 +1897,25 @@
                   fdLayoutGridRow
                   [formGroupName]="i"
                 >
+                <div class="flex-content">
                   <div *ngFor="let mean of tax | keyvalue">
                     <div *ngIf="mean.key === 'cbc:TaxAmount'">
                       <div formGroupName="cbc:TaxAmount">
                         <div *ngIf="infoJSON.Invoice['cac:TaxTotal']">
-                          <div
+                          <div class="flex-content">
+                            <div
                             *ngFor="
                               let itemAmount of infoJSON.Invoice[
                                 'cac:TaxTotal'
                               ][i]['cbc:TaxAmount'] | keyvalue
                             "
+                            class="ms-1"
                           >
                             <label
                               fd-form-label
-                              for="input-message"
                               id="label-input"
-                              >{{ itemAmount.key }}</label
+                              for="input-message"
+                              >{{ changeName(itemAmount.key) }}</label
                             >
                             <input
                               fd-form-control
@@ -1919,6 +1924,7 @@
                               formControlName="{{ itemAmount.key }}"
                             />
                           </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1926,18 +1932,20 @@
                     <div *ngIf="mean.key === 'cbc:RoundingAmount'">
                       <div formGroupName="cbc:RoundingAmount">
                         <div *ngIf="infoJSON.Invoice['cac:TaxTotal']">
-                          <div
+                          <div class="flex-content">
+                            <div
                             *ngFor="
                               let itemRoundingAmount of infoJSON.Invoice[
                                 'cac:TaxTotal'
                               ][i]['cbc:RoundingAmount'] | keyvalue
                             "
+                            class="ms-1"
                           >
                             <label
                               fd-form-label
                               for="input-message"
                               id="label-input"
-                              >{{ itemRoundingAmount.key }}</label
+                              >{{ changeName(itemRoundingAmount.key) }}</label
                             >
                             <input
                               fd-form-control
@@ -1945,6 +1953,7 @@
                               class="form-control"
                               formControlName="{{ itemRoundingAmount.key }}"
                             />
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -1955,11 +1964,15 @@
                         <div *ngIf="infoJSON.Invoice['cac:TaxTotal']">
                           <div *ngIf="infoJSON.Invoice['cac:TaxTotal'][i]">
                             <div
-                              *ngIf="infoJSON.Invoice['cac:TaxTotal'][i]['cac:TaxSubtotal']"
+                              *ngIf="
+                                infoJSON.Invoice['cac:TaxTotal'][i][
+                                  'cac:TaxSubtotal'
+                                ]
+                              "
                               style="margin-left: 12px"
                             >
-                             
-                              <div 
+                              <div class="flex-content">
+                                <div
                                   *ngFor="
                                     let itemSubTotal of infoJSON.Invoice[
                                       'cac:TaxTotal'
@@ -1967,15 +1980,11 @@
                                     let indexSubTotal = index
                                   "
                                   [formGroupName]="indexSubTotal"
-                                >  
-                                {{ infoJSON.Invoice[
-                                  'cac:TaxTotal'
-                                ][i]['cac:TaxSubtotal'][indexSubTotal][
-                                  'cbc:TaxAmount'
-                                ] | json }}   
-
-                                  <div formGroupName="cbc:TaxableAmount" >
-                                    <div
+                                  class="ms-1"
+                                >
+                                  <div formGroupName="cbc:TaxableAmount">
+                                    <div class="flex-content">
+                                      <div
                                       *ngFor="
                                         let itemTaxable of infoJSON.Invoice[
                                           'cac:TaxTotal'
@@ -1983,6 +1992,7 @@
                                           'cbc:TaxableAmount'
                                         ] | keyvalue
                                       "
+                                      class="ms-1"
                                     >
                                       <label
                                         fd-form-label
@@ -1997,9 +2007,11 @@
                                         formControlName="{{ itemTaxable.key }}"
                                       />
                                     </div>
+                                    </div>
                                   </div>
-                               <!--    <div formGroupName="cbc:TaxAmount">
-                                    <div
+                                  <div formGroupName="cbc:TaxAmount">
+                                    <div class="flex-content">
+                                      <div
                                       *ngFor="
                                         let itemAmount of infoJSON.Invoice[
                                           'cac:TaxTotal'
@@ -2021,6 +2033,7 @@
                                         formControlName="{{ itemAmount.key }}"
                                       />
                                     </div>
+                                    </div>
                                   </div>
                                   <div formGroupName="cac:TaxCategory">
                                     <div
@@ -2041,13 +2054,11 @@
                                           <div
                                             *ngFor="
                                               let itemScheme of infoJSON
-                                                .Invoice[
-                                                'cac:TaxTotal'
-                                              ][i]['cac:TaxSubtotal'][
-                                                indexSubTotal
-                                              ]['cac:TaxCategory'][
-                                                'cac:TaxScheme'
-                                              ] | keyvalue
+                                                .Invoice['cac:TaxTotal'][i][
+                                                'cac:TaxSubtotal'
+                                              ][indexSubTotal][
+                                                'cac:TaxCategory'
+                                              ]['cac:TaxScheme'] | keyvalue
                                             "
                                           >
                                             <label
@@ -2088,14 +2099,16 @@
                                         />
                                       </div>
                                     </div>
-                                  </div> -->
+                                  </div>
                                 </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
                 </div>
               </fd-layout-grid>
             </form>
@@ -2105,7 +2118,9 @@
               [formGroup]="$any(retentionsForm)"
               *ngIf="step.label === 'Retenciones'"
             >
-              <fd-layout-grid>
+              <fd-layout-grid style="
+              margin-left: 4px;
+          ">
                 <div
                   *ngFor="
                     let means of infoJSON.Invoice['cac:WithholdingTaxTotal'];
@@ -2114,180 +2129,199 @@
                   fdLayoutGridRow
                   [formGroupName]="i"
                 >
-                  <div *ngFor="let item of means | keyvalue">
-                    <div *ngIf="item.key === 'cbc:TaxAmount'">
-                      <div class="form-group col animation-element align">
-                        <div formGroupName="cbc:TaxAmount">
-                          <div
-                            *ngIf="infoJSON.Invoice['cac:WithholdingTaxTotal']"
-                          >
-                            <div class="flex-content">
-                              <div
-                                *ngFor="
-                                  let itemAmount of infoJSON.Invoice[
-                                    'cac:WithholdingTaxTotal'
-                                  ][i]['cbc:TaxAmount'] | keyvalue
-                                "
-                              >
-                                <div class="ms-1">
-                                  <label
-                                    fd-form-label
-                                    for="input-message"
-                                    id="label-input"
-                                    >{{ changeName(itemAmount.key) }}:
-                                  </label>
-                                  <input
-                                    fd-form-control
-                                    type="text"
-                                    class="form-control"
-                                    formControlName="{{ itemAmount.key }}"
-                                  />
+                  <div class="flex-content">
+                    <div *ngFor="let item of means | keyvalue">
+                      <div *ngIf="item.key === 'cbc:TaxAmount'">
+                        <div >
+                          <div formGroupName="cbc:TaxAmount">
+                            <div
+                              *ngIf="infoJSON.Invoice['cac:WithholdingTaxTotal']"
+                            >
+                              <div class="flex-content">
+                                <div
+                                  *ngFor="
+                                    let itemAmount of infoJSON.Invoice[
+                                      'cac:WithholdingTaxTotal'
+                                    ][i]['cbc:TaxAmount'] | keyvalue
+                                  "
+                                >
+                                  <div class="ms-1">
+                                    <label
+                                      fd-form-label
+                                      for="input-message"
+                                      id="label-input"
+                                      >{{ changeName(itemAmount.key) }}:
+                                    </label>
+                                    <input
+                                      fd-form-control
+                                      type="text"
+                                      class="form-control"
+                                      formControlName="{{ itemAmount.key }}"
+                                    />
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div *ngIf="item.key === 'cac:TaxSubtotal'">
-                      <div>
-                        <div formArrayName="cac:TaxSubtotal">
-                          <div
-                            *ngIf="infoJSON.Invoice['cac:WithholdingTaxTotal']"
-                          >
+                      <div *ngIf="item.key === 'cac:TaxSubtotal'">
+                        <div>
+                          <div formArrayName="cac:TaxSubtotal">
                             <div
-                              *ngIf="
-                                infoJSON.Invoice['cac:WithholdingTaxTotal'][i]
-                              "
+                              *ngIf="infoJSON.Invoice['cac:WithholdingTaxTotal']"
                             >
                               <div
                                 *ngIf="
-                                  infoJSON.Invoice['cac:WithholdingTaxTotal'][
-                                    i
-                                  ]['cac:TaxSubtotal']
+                                  infoJSON.Invoice['cac:WithholdingTaxTotal'][i]
                                 "
                               >
                                 <div
-                                  *ngFor="
-                                    let itemSubTotal of infoJSON.Invoice[
-                                      'cac:WithholdingTaxTotal'
-                                    ][i]['cac:TaxSubtotal'];
-                                    let indexSubTotal = index
+                                  *ngIf="
+                                    infoJSON.Invoice['cac:WithholdingTaxTotal'][
+                                      i
+                                    ]['cac:TaxSubtotal']
                                   "
-                                  [formGroupName]="indexSubTotal"
                                 >
-                                  <div formGroupName="cbc:TaxableAmount">
+                                  <div class="flex-content">
                                     <div
                                       *ngFor="
-                                        let itemTaxable of infoJSON.Invoice[
+                                        let itemSubTotal of infoJSON.Invoice[
                                           'cac:WithholdingTaxTotal'
-                                        ][i]['cac:TaxSubtotal'][indexSubTotal][
-                                          'cbc:TaxableAmount'
-                                        ] | keyvalue
+                                        ][i]['cac:TaxSubtotal'];
+                                        let indexSubTotal = index
                                       "
+                                      [formGroupName]="indexSubTotal"
+                                      class="ms-1"
                                     >
-                                      <label
-                                        fd-form-label
-                                        for="input-message"
-                                        id="label-input"
-                                        >{{ changeName(itemTaxable.key) }}:
-                                      </label>
-                                      <input
-                                        fd-form-control
-                                        type="text"
-                                        class="form-control"
-                                        formControlName="{{ itemTaxable.key }}"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div formGroupName="cbc:TaxAmount">
-                                    <div
-                                      *ngFor="
-                                        let itemAmount of infoJSON.Invoice[
-                                          'cac:WithholdingTaxTotal'
-                                        ][i]['cac:TaxSubtotal'][indexSubTotal][
-                                          'cbc:TaxAmount'
-                                        ] | keyvalue
-                                      "
-                                    >
-                                      <label
-                                        fd-form-label
-                                        for="input-message"
-                                        id="label-input"
-                                        >{{ changeName(itemAmount.key) }}:
-                                      </label>
-                                      <input
-                                        fd-form-control
-                                        type="text"
-                                        class="form-control"
-                                        formControlName="{{ itemAmount.key }}"
-                                      />
-                                    </div>
-                                  </div>
-                                  <div formGroupName="cac:TaxCategory">
-                                    <div
-                                      *ngFor="
-                                        let itemCategory of infoJSON.Invoice[
-                                          'cac:WithholdingTaxTotal'
-                                        ][i]['cac:TaxSubtotal'][indexSubTotal][
-                                          'cac:TaxCategory'
-                                        ] | keyvalue
-                                      "
-                                    >
-                                      <div
-                                        *ngIf="
-                                          itemCategory.key === 'cac:TaxScheme'
-                                        "
-                                      >
-                                        <div formGroupName="cac:TaxScheme">
+                                      <div formGroupName="cbc:TaxableAmount">
+                                        <div class="flex-content">
                                           <div
-                                            *ngFor="
-                                              let itemScheme of infoJSON
-                                                .Invoice[
-                                                'cac:WithholdingTaxTotal'
-                                              ][i]['cac:TaxSubtotal'][
-                                                indexSubTotal
-                                              ]['cac:TaxCategory'][
-                                                'cac:TaxScheme'
-                                              ] | keyvalue
+                                          *ngFor="
+                                            let itemTaxable of infoJSON.Invoice[
+                                              'cac:WithholdingTaxTotal'
+                                            ][i]['cac:TaxSubtotal'][
+                                              indexSubTotal
+                                            ]['cbc:TaxableAmount'] | keyvalue
+                                          "
+                                          class="ms-1"
+                                        >
+                                          <label
+                                            fd-form-label
+                                            for="input-message"
+                                            id="label-input"
+                                            >{{ changeName(itemTaxable.key) }}:
+                                          </label>
+                                          <input
+                                            fd-form-control
+                                            type="text"
+                                            class="form-control"
+                                            formControlName="{{
+                                              itemTaxable.key
+                                            }}"
+                                          />
+                                        </div>
+                                        </div>
+                                      </div>
+                                      <div formGroupName="cbc:TaxAmount">
+                                        <div class="flex-content">
+                                          <div
+                                          *ngFor="
+                                            let itemAmount of infoJSON.Invoice[
+                                              'cac:WithholdingTaxTotal'
+                                            ][i]['cac:TaxSubtotal'][
+                                              indexSubTotal
+                                            ]['cbc:TaxAmount'] | keyvalue
+                                          "
+                                          class="ms-1"
+                                        >
+                                          <label
+                                            fd-form-label
+                                            for="input-message"
+                                            id="label-input"
+                                            >{{ changeName(itemAmount.key) }}:
+                                          </label>
+                                          <input
+                                            fd-form-control
+                                            type="text"
+                                            class="form-control"
+                                            formControlName="{{ itemAmount.key }}"
+                                          />
+                                        </div>
+                                        </div>
+                                      </div>
+                                      <div formGroupName="cac:TaxCategory">
+                                        <div
+                                          *ngFor="
+                                            let itemCategory of infoJSON.Invoice[
+                                              'cac:WithholdingTaxTotal'
+                                            ][i]['cac:TaxSubtotal'][
+                                              indexSubTotal
+                                            ]['cac:TaxCategory'] | keyvalue
+                                          "
+                                          class="ms-1"
+                                        >
+                                          <div
+                                            *ngIf="
+                                              itemCategory.key === 'cac:TaxScheme'
+                                            "
+                                          >
+                                            <div formGroupName="cac:TaxScheme">
+                                              <div class="flex-content">
+                                                <div
+                                                *ngFor="
+                                                  let itemScheme of infoJSON
+                                                    .Invoice[
+                                                    'cac:WithholdingTaxTotal'
+                                                  ][i]['cac:TaxSubtotal'][
+                                                    indexSubTotal
+                                                  ]['cac:TaxCategory'][
+                                                    'cac:TaxScheme'
+                                                  ] | keyvalue
+                                                "
+                                              class="ms-1"
+                                              >
+                                                <label
+                                                  fd-form-label
+                                                  for="input-message"
+                                                  id="label-input"
+                                                  >{{
+                                                    changeName(itemScheme.key)
+                                                  }}:
+                                                </label>
+                                                <input
+                                                  fd-form-control
+                                                  type="text"
+                                                  class="form-control"
+                                                  formControlName="{{
+                                                    itemScheme.key
+                                                  }}"
+                                                />
+                                              </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div
+                                            *ngIf="
+                                              itemCategory.key === 'cbc:Percent'
                                             "
                                           >
                                             <label
                                               fd-form-label
                                               for="input-message"
                                               id="label-input"
-                                              >{{ changeName(itemScheme.key) }}:
+                                              >{{ changeName(itemCategory.key) }}:
                                             </label>
                                             <input
                                               fd-form-control
                                               type="text"
                                               class="form-control"
                                               formControlName="{{
-                                                itemScheme.key
+                                                itemCategory.key
                                               }}"
                                             />
                                           </div>
                                         </div>
-                                      </div>
-                                      <div
-                                        *ngIf="
-                                          itemCategory.key === 'cbc:Percent'
-                                        "
-                                      >
-                                        <label
-                                          fd-form-label
-                                          for="input-message"
-                                          id="label-input"
-                                          >{{ changeName(itemCategory.key) }}:
-                                        </label>
-                                        <input
-                                          fd-form-control
-                                          type="text"
-                                          class="form-control"
-                                          formControlName="{{
-                                            itemCategory.key
-                                          }}"
-                                        />
                                       </div>
                                     </div>
                                   </div>
@@ -2317,26 +2351,29 @@
                 >
                   <div formGroupName="cbc:LineExtensionAmount">
                     <div *ngIf="infoJSON.Invoice['cac:LegalMonetaryTotal']">
-                      <div
-                        *ngFor="
-                          let item of infoJSON.Invoice[
-                            'cac:LegalMonetaryTotal'
-                          ]['cbc:LineExtensionAmount'] | keyvalue
-                        "
-                      >
-                        <div>
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >{{ changeName(item.key) }}</label
-                          >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="{{ item.key }}"
-                          />
+                      <div class="flex-content">
+                        <div
+                          *ngFor="
+                            let item of infoJSON.Invoice[
+                              'cac:LegalMonetaryTotal'
+                            ]['cbc:LineExtensionAmount'] | keyvalue
+                          "
+                          class="ms-1"
+                        >
+                          <div>
+                            <label
+                              fd-form-label
+                              for="input-message"
+                              id="label-input"
+                              >{{ changeName(item.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ item.key }}"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2352,26 +2389,29 @@
                 >
                   <div formGroupName="cbc:TaxExclusiveAmount">
                     <div *ngIf="infoJSON.Invoice['cac:LegalMonetaryTotal']">
-                      <div
-                        *ngFor="
-                          let item of infoJSON.Invoice[
-                            'cac:LegalMonetaryTotal'
-                          ]['cbc:TaxExclusiveAmount'] | keyvalue
-                        "
-                      >
-                        <div>
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >{{ changeName(item.key) }}</label
-                          >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="{{ item.key }}"
-                          />
+                      <div class="flex-content">
+                        <div
+                          *ngFor="
+                            let item of infoJSON.Invoice[
+                              'cac:LegalMonetaryTotal'
+                            ]['cbc:TaxExclusiveAmount'] | keyvalue
+                          "
+                          class="ms-1"
+                        >
+                          <div>
+                            <label
+                              fd-form-label
+                              for="input-message"
+                              id="label-input"
+                              >{{ changeName(item.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ item.key }}"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2387,26 +2427,29 @@
                 >
                   <div formGroupName="cbc:TaxInclusiveAmount">
                     <div *ngIf="infoJSON.Invoice['cac:LegalMonetaryTotal']">
-                      <div
-                        *ngFor="
-                          let item of infoJSON.Invoice[
-                            'cac:LegalMonetaryTotal'
-                          ]['cbc:TaxInclusiveAmount'] | keyvalue
-                        "
-                      >
-                        <div>
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >{{ changeName(item.key) }}</label
-                          >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="{{ item.key }}"
-                          />
+                      <div class="flex-content">
+                        <div
+                          *ngFor="
+                            let item of infoJSON.Invoice[
+                              'cac:LegalMonetaryTotal'
+                            ]['cbc:TaxInclusiveAmount'] | keyvalue
+                          "
+                          class="ms-1"
+                        >
+                          <div>
+                            <label
+                              fd-form-label
+                              for="input-message"
+                              id="label-input"
+                              >{{ changeName(item.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ item.key }}"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2422,26 +2465,29 @@
                 >
                   <div formGroupName="cbc:AllowanceTotalAmount">
                     <div *ngIf="infoJSON.Invoice['cac:LegalMonetaryTotal']">
-                      <div
-                        *ngFor="
-                          let item of infoJSON.Invoice[
-                            'cac:LegalMonetaryTotal'
-                          ]['cbc:AllowanceTotalAmount'] | keyvalue
-                        "
-                      >
-                        <div>
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >{{ changeName(item.key) }}</label
-                          >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="{{ item.key }}"
-                          />
+                      <div class="flex-content">
+                        <div
+                          *ngFor="
+                            let item of infoJSON.Invoice[
+                              'cac:LegalMonetaryTotal'
+                            ]['cbc:AllowanceTotalAmount'] | keyvalue
+                          "
+                          class="ms-1"
+                        >
+                          <div>
+                            <label
+                              fd-form-label
+                              for="input-message"
+                              id="label-input"
+                              >{{ changeName(item.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ item.key }}"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2457,26 +2503,29 @@
                 >
                   <div formGroupName="cbc:ChargeTotalAmount">
                     <div *ngIf="infoJSON.Invoice['cac:LegalMonetaryTotal']">
-                      <div
-                        *ngFor="
-                          let item of infoJSON.Invoice[
-                            'cac:LegalMonetaryTotal'
-                          ]['cbc:ChargeTotalAmount'] | keyvalue
-                        "
-                      >
-                        <div>
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >{{ changeName(item.key) }}</label
-                          >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="{{ item.key }}"
-                          />
+                      <div class="flex-content">
+                        <div
+                          *ngFor="
+                            let item of infoJSON.Invoice[
+                              'cac:LegalMonetaryTotal'
+                            ]['cbc:ChargeTotalAmount'] | keyvalue
+                          "
+                          class="ms-1"
+                        >
+                          <div>
+                            <label
+                              fd-form-label
+                              for="input-message"
+                              id="label-input"
+                              >{{ changeName(item.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ item.key }}"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2492,26 +2541,29 @@
                 >
                   <div formGroupName="cbc:PrePaidAmountAmount">
                     <div *ngIf="infoJSON.Invoice['cac:LegalMonetaryTotal']">
-                      <div
-                        *ngFor="
-                          let item of infoJSON.Invoice[
-                            'cac:LegalMonetaryTotal'
-                          ]['cbc:PrePaidAmountAmount'] | keyvalue
-                        "
-                      >
-                        <div>
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >{{ changeName(item.key) }}</label
-                          >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="{{ item.key }}"
-                          />
+                      <div class="flex-content">
+                        <div
+                          *ngFor="
+                            let item of infoJSON.Invoice[
+                              'cac:LegalMonetaryTotal'
+                            ]['cbc:PrePaidAmountAmount'] | keyvalue
+                          "
+                          class="ms-1"
+                        >
+                          <div>
+                            <label
+                              fd-form-label
+                              for="input-message"
+                              id="label-input"
+                              >{{ changeName(item.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ item.key }}"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2527,26 +2579,29 @@
                 >
                   <div formGroupName="cbc:PayableRoundingAmount">
                     <div *ngIf="infoJSON.Invoice['cac:LegalMonetaryTotal']">
-                      <div
-                        *ngFor="
-                          let item of infoJSON.Invoice[
-                            'cac:LegalMonetaryTotal'
-                          ]['cbc:PayableRoundingAmount'] | keyvalue
-                        "
-                      >
-                        <div>
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >{{ changeName(item.key) }}</label
-                          >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="{{ item.key }}"
-                          />
+                      <div class="flex-content">
+                        <div
+                          *ngFor="
+                            let item of infoJSON.Invoice[
+                              'cac:LegalMonetaryTotal'
+                            ]['cbc:PayableRoundingAmount'] | keyvalue
+                          "
+                          class="ms-1"
+                        >
+                          <div>
+                            <label
+                              fd-form-label
+                              for="input-message"
+                              id="label-input"
+                              >{{ changeName(item.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ item.key }}"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2562,26 +2617,138 @@
                 >
                   <div formGroupName="cbc:PayableAmount">
                     <div *ngIf="infoJSON.Invoice['cac:LegalMonetaryTotal']">
-                      <div
-                        *ngFor="
-                          let item of infoJSON.Invoice[
-                            'cac:LegalMonetaryTotal'
-                          ]['cbc:PayableAmount'] | keyvalue
-                        "
-                      >
-                        <div>
-                          <label
-                            fd-form-label
-                            for="input-message"
-                            id="label-input"
-                            >{{ changeName(item.key) }}</label
+                      <div class="flex-content">
+                        <div
+                          *ngFor="
+                            let item of infoJSON.Invoice[
+                              'cac:LegalMonetaryTotal'
+                            ]['cbc:PayableAmount'] | keyvalue
+                          "
+                          class="ms-1"
+                        >
+                          <div>
+                            <label
+                              fd-form-label
+                              for="input-message"
+                              id="label-input"
+                              >{{ changeName(item.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ item.key }}"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fd-layout-grid>
+            </form>
+
+            <!-- Detalle general  -->
+            <form
+              [formGroup]="$any(detailForm)"
+              *ngIf="step.label === 'Detalle general'"
+            >
+              <fd-layout-grid style="
+              margin-left: 4px;
+          " >
+                <div class="ms-1"
+                  *ngFor="
+                    let detail of this.infoJSON.Invoice['cac:InvoiceLine'];
+                    let i = index
+                  "
+                  fdLayoutGridRow
+                  [formGroupName]="i"
+                >
+                  <div *ngFor="let mean of detail | keyvalue">
+                    <div *ngIf="mean.key === 'cbc:ID'">
+                      <div formGroupName="cbc:ID">
+                        <div *ngIf="infoJSON.Invoice['cac:InvoiceLine']">
+                          <div
+                            *ngFor="
+                              let itemID of infoJSON.Invoice['cac:InvoiceLine'][
+                                i
+                              ]['cbc:ID'] | keyvalue
+                            "
+                            class="ms-1"
                           >
-                          <input
-                            fd-form-control
-                            type="text"
-                            class="form-control"
-                            formControlName="{{ item.key }}"
-                          />
+                            <label
+                              fd-form-label
+                              id="label-input"
+                              for="input-message"
+                              >{{ changeName(itemID.key) }}</label
+                            >
+                            <input
+                              fd-form-control
+                              type="text"
+                              class="form-control"
+                              formControlName="{{ itemID.key }}"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="mean.key === 'cbc:InvoicedQuantity'">
+                      <div formGroupName="cbc:InvoicedQuantity">
+                        <div *ngIf="infoJSON.Invoice['cac:InvoiceLine']">
+                          <div class="flex-content">
+                            <div
+                              *ngFor="
+                                let item of infoJSON.Invoice['cac:InvoiceLine'][
+                                  i
+                                ]['cbc:InvoicedQuantity'] | keyvalue
+                              "
+                              class="ms-1"
+                            >
+                              <label
+                                fd-form-label
+                                id="label-input"
+                                for="input-message"
+                                >{{ changeName(item.key) }}</label
+                              >
+                              <input
+                                fd-form-control
+                                type="text"
+                                class="form-control"
+                                formControlName="{{ item.key }}"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="mean.key === 'cbc:LineExtensionAmount'">
+                      <div formGroupName="cbc:LineExtensionAmount">
+                        <div *ngIf="infoJSON.Invoice['cac:InvoiceLine']">
+                          <div class="flex-content">
+                            <div
+                              *ngFor="
+                                let item of infoJSON.Invoice['cac:InvoiceLine'][
+                                  i
+                                ]['cbc:LineExtensionAmount'] | keyvalue
+                              "
+                              class="ms-1"
+                            >
+                              <label
+                                fd-form-label
+                                id="label-input"
+                                for="input-message"
+                                >{{ changeName(item.key) }}</label
+                              >
+                              <input
+                                fd-form-control
+                                type="text"
+                                class="form-control"
+                                formControlName="{{ item.key }}"
+                              />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
