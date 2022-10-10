@@ -240,7 +240,7 @@ export type TaxCategory = {
 
 export type WithholdingTaxTotal = {
   "cbc:TaxAmount": TaxAmount;
-  "cac:TaxSubtotal": TaxSubtotal;
+  "cac:TaxSubtotal": TaxSubtotal[];
 }
 
 export type LegalMonetaryTotal = {

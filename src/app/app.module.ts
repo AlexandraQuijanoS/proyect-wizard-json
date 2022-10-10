@@ -14,6 +14,7 @@ import { LayoutGridModule } from '@fundamental-ngx/core/layout-grid';
 import { VerticalNavigationModule } from '@fundamental-ngx/core/vertical-navigation';
 import { PopoverModule } from '@fundamental-ngx/core/popover';
 import { PanelModule } from '@fundamental-ngx/core/panel';
+import { ButtonModule } from '@fundamental-ngx/core/button';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PanelModule } from '@fundamental-ngx/core/panel';
     LayoutGridModule,
     VerticalNavigationModule,
     PopoverModule,
-    PanelModule
+    PanelModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
