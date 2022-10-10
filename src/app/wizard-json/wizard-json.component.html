@@ -346,49 +346,50 @@
               [formGroup]="orderForm"
               *ngIf="step.label === 'Orden de compra'"
             >
-              <fd-layout-grid *ngIf="infoJSON.Invoice['cac:OrderReference']" style="margin-left:8px">
+              <fd-layout-grid
+                *ngIf="infoJSON.Invoice['cac:OrderReference']"
+                style="margin-left: 8px"
+              >
                 <div class="flex-content">
                   <div
-                  *ngFor="
-                    let item of infoJSON.Invoice['cac:OrderReference']
-                      | keyvalue
-                  "
-                  fdLayoutGridRow
-                  class="ms-1"
-                >
-                  <div
-         
+                    *ngFor="
+                      let item of infoJSON.Invoice['cac:OrderReference']
+                        | keyvalue
+                    "
+                    fdLayoutGridRow
+                    class="ms-1"
                   >
-                    <div
-                      class="form-group col animation-element align"
-                      fd-form-item
-                    >
-                      <label
-                        fd-form-label
-                        for="input-message"
-                        id="label-input"
-                        >{{ changeName(item.key) }}</label
+                    <div>
+                      <div
+                        class="form-group col animation-element align"
+                        fd-form-item
                       >
+                        <label
+                          fd-form-label
+                          for="input-message"
+                          id="label-input"
+                          >{{ changeName(item.key) }}</label
+                        >
 
-                      <input
-                        [readonly]="enableOrderForm"
-                        *ngIf="item.key === 'cbc:IssueDate'"
-                        fd-form-control
-                        type="date"
-                        class="form-control"
-                        formControlName="{{ item.key }}"
-                      />
-                      <input
-                        [readonly]="enableOrderForm"
-                        *ngIf="item.key !== 'cbc:IssueDate'"
-                        fd-form-control
-                        type="text"
-                        class="form-control"
-                        formControlName="{{ item.key }}"
-                      />
+                        <input
+                          [readonly]="enableOrderForm"
+                          *ngIf="item.key === 'cbc:IssueDate'"
+                          fd-form-control
+                          type="date"
+                          class="form-control"
+                          formControlName="{{ item.key }}"
+                        />
+                        <input
+                          [readonly]="enableOrderForm"
+                          *ngIf="item.key !== 'cbc:IssueDate'"
+                          fd-form-control
+                          type="text"
+                          class="form-control"
+                          formControlName="{{ item.key }}"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
                 </div>
               </fd-layout-grid>
               <button
@@ -412,21 +413,16 @@
               <fd-layout-grid
                 *ngIf="infoJSON.Invoice['cac:AdditionalDocumentReference']"
               >
-                <div
-                  *ngFor="
-                    let item of infoJSON.Invoice[
-                      'cac:AdditionalDocumentReference'
-                    ] | keyvalue
-                  "
-                  fdLayoutGridRow
-                >
+                <div class="flex-content">
                   <div
-                    [fdLayoutGridCol]="12"
-                    [colMd]="6"
-                    [colLg]="4"
-                    [colXl]="3"
+                    *ngFor="
+                      let item of infoJSON.Invoice[
+                        'cac:AdditionalDocumentReference'
+                      ] | keyvalue
+                    "
+                    class="ms-1"
                   >
-                    <div class="form-group col animation-element align">
+                    <div>
                       <label
                         fd-form-label
                         for="input-message"
@@ -1773,9 +1769,9 @@
             >
               <fd-layout-grid>
                 <div
-                *ngFor="let means of paymentMeansForm.value; let i = index"
-                fdLayoutGridRow
-                [formGroupName]="i"
+                  *ngFor="let means of paymentMeansForm.value; let i = index"
+                  fdLayoutGridRow
+                  [formGroupName]="i"
                 >
                   <div
                     *ngFor="let item of means | keyvalue"
@@ -2822,14 +2818,11 @@
                 </div>
               </fd-layout-grid>
             </form>
-
-           
           </fd-wizard-content>
         </li>
       </ul>
     </fd-wizard-navigation>
     <div fd-bar barDesign="footer">
-
       <div fd-bar-left>
         <div class="row row-cols-1 row-cols-md-2 spacing">
           <button
@@ -2854,7 +2847,6 @@
           </button>
         </div>
       </div>
-
 
       <div fd-bar-right style="margin-top: 20px">
         <fd-bar-element>
