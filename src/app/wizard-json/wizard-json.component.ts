@@ -21,10 +21,7 @@ import {
   WithholdingTaxTotal,
 } from '../types/Invoce';
 import { JsonServiceService } from './services/json-service.service';
-<<<<<<< HEAD
-=======
 
->>>>>>> feature/merge
 import { DomSanitizer } from '@angular/platform-browser';
 import { keyValue } from '../types/ListInvoice';
 
@@ -356,9 +353,39 @@ export class WizardJsonComponent implements OnInit {
       this.addGroup(this.infoJSON.Invoice['cac:OrderReference'])
     );
 
+    this.enableOrderForm = this.dataJSON.Invoice['cac:OrderReference']
+      ? false
+      : true;
+
+    // Campos de contingencia
+
+    this.contingencyForm = new FormGroup(
+      this.addGroup(this.infoJSON.Invoice['cac:AdditionalDocumentReference'])
+    );
+
+    this.enableContingencyForm = this.dataJSON.Invoice[
+      'cac:AdditionalDocumentReference'
+    ]
+      ? false
+      : true;
+
+    // Emisor Exito
+
+    this.transmitterForm = new FormGroup(
+      this.addGroup(this.infoJSON.Invoice['cac:AccountingSupplierParty'])
+    );
+
+    this.enableTransmitterForm = this.dataJSON.Invoice[
+      'cac:AccountingSupplierParty'
+    ]
+      ? false
+      : true;
+
     // Receptor
+    this.receiverForm = new FormGroup(
       this.addGroup(this.infoJSON.Invoice['cac:AccountingCustomerParty'])
-  
+    );
+
     // Formas de pago
 
     this.paymentMeansForm = new FormArray(
@@ -398,6 +425,7 @@ export class WizardJsonComponent implements OnInit {
     this.detailForm = new FormArray(
       this.addArrayGroup(this.infoJSON.Invoice['cac:InvoiceLine'])
     );
+    console.log(this.infoJSON.Invoice['cac:InvoiceLine']);
 
     this.loading = false;
   }
@@ -576,5 +604,4 @@ export class WizardJsonComponent implements OnInit {
       )
     );
   }
-
 }
